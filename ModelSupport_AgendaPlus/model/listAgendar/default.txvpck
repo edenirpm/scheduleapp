@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nodeSet version="1.0">
+  <view uin="ugufnbajrgs_v">
+    <property name="$defaultDiagram" value="true" />
+    <property name="$metaclass" value="Package Diagram" />
+    <property name="$name" value="default" />
+    <reference referencedUin="delphi:e_class:src:AgendaPlus:model.listAgendar.TListAgendar">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="120,100,222,178" />
+      <property name="location_set_by_user" value="True" />
+      <reference referencedUin="delphi:e_field:src:AgendaPlus:model.listAgendar.TListAgendar.FRequisicoes" />
+      <reference referencedUin="delphi:e_method:src:AgendaPlus:model.listAgendar.TListAgendar.SetRequisicoes(System.Generics.Collections.TObjectList&lt;model.agendar.TAgendar&gt;)" />
+      <reference referencedUin="delphi:e_property:src:AgendaPlus:model.listAgendar.TListAgendar.Requisicoes" />
+      <reference referencedUin="delphi:e_method:src:AgendaPlus:model.listAgendar.TListAgendar.create()">
+        <property name="bounds" value="380,202,0,0" />
+      </reference>
+      <reference referencedUin="delphi:e_method:src:AgendaPlus:model.listAgendar.TListAgendar.destroy()" />
+      <reference referencedUin="delphi:e_field:src:AgendaPlus:model.listAgendar.TListAgendar.FInstance">
+        <property name="bounds" value="380,202,0,0" />
+      </reference>
+      <reference referencedUin="delphi:e_method:src:AgendaPlus:model.listAgendar.TListAgendar.GetInstance()">
+        <property name="bounds" value="380,202,0,0" />
+      </reference>
+      <reference referencedUin="delphi:l_ast:src:AgendaPlus:model.listAgendar.TListAgendar.FInstance">
+        <property name="sourceAnchor" value="342,270" />
+        <property name="targetAnchor" value="323,278" />
+        <property name="bendpoints" value="386,270,386,322,323,322" />
+        <property name="bounds_setted_by_user" value="True" />
+      </reference>
+    </reference>
+    <reference referencedUin="delphi:e_class:src:AgendaPlus:model.listAgendar.@unitclass">
+      <property name="$shortcutReference" value="true" />
+    </reference>
+    <reference referencedUin="design:node:::gpdeoh3kdq30s4zmo_n">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="400,120,204,79" />
+      <property name="location_set_by_user" value="True" />
+      <reference referencedUin="design:link:::4f09ni5fq383q5ii_l:gpdeoh3kdq30s4zmo_n">
+        <property name="bounds" value="380,202,0,0" />
+        <property name="sourceAnchor" value="400,159" />
+        <property name="targetAnchor" value="342,159" />
+        <property name="bendpoints" value="" />
+        <reference referencedUin="label:@supplierRole:design:link:::4f09ni5fq383q5ii_l:gpdeoh3kdq30s4zmo_n">
+          <property name="bounds" value="314,140,56,16" />
+        </reference>
+      </reference>
+    </reference>
+  </view>
+</nodeSet>

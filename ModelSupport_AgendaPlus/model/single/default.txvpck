@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nodeSet version="1.0">
+  <view uin="9myvol4iphq_v">
+    <property name="$defaultDiagram" value="true" />
+    <property name="$metaclass" value="Package Diagram" />
+    <property name="$name" value="default" />
+    <reference referencedUin="delphi:e_class:src:AgendaPlus:model.single.TSingle">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="417,91,244,223" />
+      <reference referencedUin="delphi:e_field:src:AgendaPlus:model.single.TSingle.FFuncionarios" />
+      <reference referencedUin="delphi:e_field:src:AgendaPlus:model.single.TSingle.FServicos" />
+      <reference referencedUin="delphi:e_method:src:AgendaPlus:model.single.TSingle.SetFuncionarios(System.Generics.Collections.TObjectList&lt;model.funcionario.TFuncionario&gt;)" />
+      <reference referencedUin="delphi:e_method:src:AgendaPlus:model.single.TSingle.SetServicos(System.Generics.Collections.TObjectList&lt;model.servico.TServico&gt;)" />
+      <reference referencedUin="delphi:e_property:src:AgendaPlus:model.single.TSingle.Funcionarios" />
+      <reference referencedUin="delphi:e_property:src:AgendaPlus:model.single.TSingle.Servicos" />
+      <reference referencedUin="delphi:e_method:src:AgendaPlus:model.single.TSingle.create()">
+        <property name="bounds" value="417,91,0,0" />
+      </reference>
+      <reference referencedUin="delphi:e_method:src:AgendaPlus:model.single.TSingle.destroy()" />
+      <reference referencedUin="delphi:e_field:src:AgendaPlus:model.single.TSingle.FInstance">
+        <property name="bounds" value="417,91,0,0" />
+      </reference>
+      <reference referencedUin="delphi:e_method:src:AgendaPlus:model.single.TSingle.GetInstance()">
+        <property name="bounds" value="417,91,0,0" />
+      </reference>
+      <reference referencedUin="delphi:l_ast:src:AgendaPlus:model.single.TSingle.FInstance">
+        <property name="sourceAnchor" value="661,306" />
+        <property name="targetAnchor" value="653,314" />
+        <property name="bendpoints" value="694,306,694,347,653,347" />
+        <property name="bounds_setted_by_user" value="True" />
+      </reference>
+    </reference>
+    <reference referencedUin="delphi:e_class:src:AgendaPlus:model.single.@unitclass">
+      <property name="$shortcutReference" value="true" />
+    </reference>
+    <reference referencedUin="design:node:::q6cioqobuho_n">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="617,91,161,79" />
+      <reference referencedUin="design:link:::hboukbppryr_l:q6cioqobuho_n">
+        <property name="bounds" value="417,91,0,0" />
+        <property name="sourceAnchor" value="639,103" />
+        <property name="targetAnchor" value="639,314" />
+        <property name="bendpoints" value="" />
+        <reference referencedUin="label:@supplierRole:design:link:::hboukbppryr_l:q6cioqobuho_n">
+          <property name="bounds" value="642,306,56,16" />
+        </reference>
+      </reference>
+    </reference>
+  </view>
+</nodeSet>

@@ -1,0 +1,85 @@
+inherited FrmCadServico: TFrmCadServico
+  Caption = 'FrmBase1'
+  DesignerMasterStyle = 3
+  inherited LayTudo: TLayout
+    inherited LayContent: TLayout
+      object Layout1: TLayout [1]
+        Align = Client
+        Size.Width = 320.000000000000000000
+        Size.Height = 430.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        object Layout6: TLayout
+          Align = Top
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 30.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 3.000000000000000000
+          Position.X = 10.000000000000000000
+          Position.Y = 30.000000000000000000
+          Size.Width = 300.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object Layout7: TLayout
+            Align = Client
+            Size.Width = 300.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            object Edit3: TEdit
+              Touch.InteractiveGestures = [LongTap, DoubleTap]
+              Align = Client
+              TabOrder = 0
+              KeyboardType = EmailAddress
+              Size.Width = 300.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              StyledSettings = [Family, Style, FontColor]
+              object Text5: TText
+                Align = Client
+                Size.Width = 300.000000000000000000
+                Size.Height = 32.000000000000000000
+                Size.PlatformDefault = False
+                Text = 'Nome do Servico'
+                TextSettings.Font.Size = 11.000000000000000000
+                TextSettings.HorzAlign = Leading
+                OnClick = Text5Click
+              end
+            end
+          end
+        end
+        object RoundRect1: TRoundRect
+          Align = Top
+          Fill.Color = claWhite
+          Margins.Left = 40.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Margins.Right = 40.000000000000000000
+          Position.X = 40.000000000000000000
+          Position.Y = 83.000000000000000000
+          Size.Width = 240.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = xFF795548
+          Stroke.Thickness = 3.000000000000000000
+          object Text2: TText
+            Align = Client
+            Size.Width = 240.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            Text = 'Cadastrar'
+            TextSettings.Font.Family = 'Calibri'
+            TextSettings.Font.Size = 26.000000000000000000
+            TextSettings.FontColor = xFF795548
+            OnClick = Text2Click
+          end
+        end
+      end
+      inherited MenuMultiview: TMultiView
+        Size.Width = 250.000000000000000000
+        Size.Height = 441.000000000000000000
+        Visible = False
+      end
+    end
+  end
+end

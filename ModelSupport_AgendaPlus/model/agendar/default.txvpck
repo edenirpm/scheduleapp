@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nodeSet version="1.0">
+  <view uin="uu503m6u0cqbdrawe_v">
+    <property name="$defaultDiagram" value="true" />
+    <property name="$metaclass" value="Package Diagram" />
+    <property name="$name" value="default" />
+    <reference referencedUin="delphi:e_class:src:AgendaPlus:model.agendar.TAgendar">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="424,203,244,178" />
+      <reference referencedUin="delphi:e_field:src:AgendaPlus:model.agendar.TAgendar.FFuncionarios" />
+      <reference referencedUin="delphi:e_method:src:AgendaPlus:model.agendar.TAgendar.SetFuncionarios(System.Generics.Collections.TObjectList&lt;model.funcionario.TFuncionario&gt;)" />
+      <reference referencedUin="delphi:e_property:src:AgendaPlus:model.agendar.TAgendar.Funcionarios" />
+      <reference referencedUin="delphi:e_method:src:AgendaPlus:model.agendar.TAgendar.create()">
+        <property name="bounds" value="424,203,0,0" />
+      </reference>
+      <reference referencedUin="delphi:e_method:src:AgendaPlus:model.agendar.TAgendar.destroy()" />
+      <reference referencedUin="delphi:e_field:src:AgendaPlus:model.agendar.TAgendar.FInstance">
+        <property name="bounds" value="424,203,0,0" />
+      </reference>
+      <reference referencedUin="delphi:e_method:src:AgendaPlus:model.agendar.TAgendar.GetInstance()">
+        <property name="bounds" value="424,203,0,0" />
+      </reference>
+      <reference referencedUin="delphi:l_ast:src:AgendaPlus:model.agendar.TAgendar.FInstance">
+        <property name="sourceAnchor" value="668,373" />
+        <property name="targetAnchor" value="660,381" />
+        <property name="bendpoints" value="701,373,701,414,660,414" />
+        <property name="bounds_setted_by_user" value="True" />
+      </reference>
+    </reference>
+    <reference referencedUin="delphi:e_class:src:AgendaPlus:model.agendar.@unitclass">
+      <property name="$shortcutReference" value="true" />
+    </reference>
+    <reference referencedUin="design:node:::u6hyv10usitvxawot_n">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="624,203,177,79" />
+      <reference referencedUin="design:link:::vo2i4olhvitdz0zkj_l:u6hyv10usitvxawot_n">
+        <property name="bounds" value="424,203,0,0" />
+        <property name="sourceAnchor" value="646,216" />
+        <property name="targetAnchor" value="646,381" />
+        <property name="bendpoints" value="" />
+        <reference referencedUin="label:@supplierRole:design:link:::vo2i4olhvitdz0zkj_l:u6hyv10usitvxawot_n">
+          <property name="bounds" value="649,373,56,16" />
+        </reference>
+      </reference>
+    </reference>
+  </view>
+</nodeSet>

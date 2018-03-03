@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nodeSet version="1.0">
+  <node uin="gpdeoh3kdq30s4zmo_n">
+    <property name="$metaclass" value="Pattern" />
+    <property name="$name" value="Singleton" />
+    <property name="PatternUPID" value="{2004-11-30-7-31-41-705-01016}" />
+    <link uin="4f09ni5fq383q5ii_l">
+      <property name="$metaclass" value="DesignPatternLink" />
+      <property name="$name" value="TListAgendar" />
+      <property name="@supplierRole" value="_Singleton" />
+      <participant referencedUin="design:node:::gpdeoh3kdq30s4zmo_n" role="Client" />
+      <participant referencedUin="delphi:e_class:src:AgendaPlus:model.listAgendar.TListAgendar" role="Supplier" />
+    </link>
+  </node>
+</nodeSet>

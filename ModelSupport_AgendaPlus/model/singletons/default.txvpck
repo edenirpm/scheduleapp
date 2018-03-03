@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nodeSet version="1.0">
+  <view uin="y3v70b7ad4s_v">
+    <property name="$defaultDiagram" value="true" />
+    <property name="$metaclass" value="Package Diagram" />
+    <property name="$name" value="default" />
+    <reference referencedUin="delphi:e_class:lib:DelphiWin32:model.singletons.TSingletons">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="60,60,244,358" />
+      <property name="location_set_by_user" value="True" />
+      <reference referencedUin="delphi:e_field:src:AgendaPlus:model.singletons.Tsingletons.FFuncionario" />
+      <reference referencedUin="delphi:e_field:src:AgendaPlus:model.singletons.Tsingletons.FServico" />
+      <reference referencedUin="delphi:e_field:src:AgendaPlus:model.singletons.Tsingletons.FEmpresa" />
+      <reference referencedUin="delphi:e_field:src:AgendaPlus:model.singletons.Tsingletons.FFuncionarios" />
+      <reference referencedUin="delphi:e_field:src:AgendaPlus:model.singletons.Tsingletons.FServicos" />
+      <reference referencedUin="delphi:e_method:src:AgendaPlus:model.singletons.Tsingletons.SetEmpresa(model.empresa.TEmpresa)" />
+      <reference referencedUin="delphi:e_method:src:AgendaPlus:model.singletons.Tsingletons.SetFuncionario(model.funcionario.TFuncionario)" />
+      <reference referencedUin="delphi:e_method:src:AgendaPlus:model.singletons.Tsingletons.SetFuncionarios(System.Generics.Collections.TObjectList&lt;model.funcionario.TFuncionario&gt;)" />
+      <reference referencedUin="delphi:e_method:src:AgendaPlus:model.singletons.Tsingletons.SetServico(model.servico.TServico)" />
+      <reference referencedUin="delphi:e_method:src:AgendaPlus:model.singletons.Tsingletons.SetServicos(System.Generics.Collections.TObjectList&lt;model.servico.TServico&gt;)" />
+      <reference referencedUin="delphi:e_property:src:AgendaPlus:model.singletons.Tsingletons.Funcionarios" />
+      <reference referencedUin="delphi:e_property:src:AgendaPlus:model.singletons.Tsingletons.Servicos" />
+      <reference referencedUin="delphi:e_property:src:AgendaPlus:model.singletons.Tsingletons.Empresa" />
+      <reference referencedUin="delphi:e_property:src:AgendaPlus:model.singletons.Tsingletons.Funcionario" />
+      <reference referencedUin="delphi:e_property:src:AgendaPlus:model.singletons.Tsingletons.Servico" />
+      <reference referencedUin="delphi:e_method:src:AgendaPlus:model.singletons.Tsingletons.create()">
+        <property name="bounds" value="437,179,0,0" />
+      </reference>
+      <reference referencedUin="delphi:e_method:src:AgendaPlus:model.singletons.Tsingletons.destroy()" />
+      <reference referencedUin="delphi:e_field:src:AgendaPlus:model.singletons.Tsingletons.FInstance">
+        <property name="bounds" value="437,179,0,0" />
+      </reference>
+      <reference referencedUin="delphi:e_method:src:AgendaPlus:model.singletons.Tsingletons.GetInstance()">
+        <property name="bounds" value="437,179,0,0" />
+      </reference>
+      <reference referencedUin="delphi:l_ast:src:AgendaPlus:model.singletons.Tsingletons.FInstance">
+        <property name="sourceAnchor" value="304,410" />
+        <property name="targetAnchor" value="296,418" />
+        <property name="bendpoints" value="337,410,337,451,296,451" />
+        <property name="bounds_setted_by_user" value="True" />
+      </reference>
+    </reference>
+    <reference referencedUin="design:node:::1ctvezyf8me69nc9n_n">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="460,40,194,79" />
+      <property name="location_set_by_user" value="True" />
+    </reference>
+  </view>
+</nodeSet>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nodeSet version="1.0">
+  <view uin="etdzcraldhf_v">
+    <property name="$defaultDiagram" value="true" />
+    <property name="$metaclass" value="Package Diagram" />
+    <property name="$name" value="default" />
+    <reference referencedUin="delphi:e_class:src:AgendaPlus:Controller.FrmAgendar.Singleton.@unitclass">
+      <property name="$shortcutReference" value="true" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:AgendaPlus:Controller.FrmAgendar.Singleton.TSingleton">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="240,120,156,208" />
+      <property name="location_set_by_user" value="True" />
+      <reference referencedUin="delphi:e_field:src:AgendaPlus:Controller.FrmAgendar.Singleton.TSingleton.FUltimoclick" />
+      <reference referencedUin="delphi:e_field:src:AgendaPlus:Controller.FrmAgendar.Singleton.TSingleton.FHoraSelecionada" />
+      <reference referencedUin="delphi:e_method:src:AgendaPlus:Controller.FrmAgendar.Singleton.TSingleton.SetHoraSelecionada(System.string)" />
+      <reference referencedUin="delphi:e_method:src:AgendaPlus:Controller.FrmAgendar.Singleton.TSingleton.SetUltimoclick(System.TObject)" />
+      <reference referencedUin="delphi:e_property:src:AgendaPlus:Controller.FrmAgendar.Singleton.TSingleton.Ultimoclick" />
+      <reference referencedUin="delphi:e_property:src:AgendaPlus:Controller.FrmAgendar.Singleton.TSingleton.HoraSelecionada" />
+      <reference referencedUin="delphi:e_method:src:AgendaPlus:Controller.FrmAgendar.Singleton.TSingleton.Create()">
+        <property name="bounds" value="553,206,0,0" />
+      </reference>
+      <reference referencedUin="delphi:e_field:src:AgendaPlus:Controller.FrmAgendar.Singleton.TSingleton.FInstance">
+        <property name="bounds" value="553,206,0,0" />
+      </reference>
+      <reference referencedUin="delphi:e_method:src:AgendaPlus:Controller.FrmAgendar.Singleton.TSingleton.GetInstance()">
+        <property name="bounds" value="553,206,0,0" />
+      </reference>
+      <reference referencedUin="delphi:l_ast:src:AgendaPlus:Controller.FrmAgendar.Singleton.TSingleton.FInstance">
+        <property name="sourceAnchor" value="396,320" />
+        <property name="targetAnchor" value="388,328" />
+        <property name="bendpoints" value="429,320,429,361,388,361" />
+        <property name="bounds_setted_by_user" value="True" />
+      </reference>
+    </reference>
+    <reference referencedUin="design:node:::59l5kg5hvel_n">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="440,160,184,79" />
+      <property name="location_set_by_user" value="True" />
+      <reference referencedUin="design:link:::qjkhjc0zd0o_l:59l5kg5hvel_n">
+        <property name="bounds" value="553,206,0,0" />
+        <property name="sourceAnchor" value="440,199" />
+        <property name="targetAnchor" value="396,199" />
+        <property name="bendpoints" value="" />
+        <reference referencedUin="label:@supplierRole:design:link:::qjkhjc0zd0o_l:59l5kg5hvel_n">
+          <property name="bounds" value="368,180,56,16" />
+        </reference>
+      </reference>
+    </reference>
+  </view>
+</nodeSet>
