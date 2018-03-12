@@ -1,0 +1,15 @@
+unit Controller.FrmCadFuncionario;
+
+interface
+Type
+IController = interface
+  ['{8412E7A7-0082-4B60-96DF-B15E9C661F08}']
+end;
+
+TController= class (TInterfacedObject,IController)
+
+end;
+
+implementation
+
+end.

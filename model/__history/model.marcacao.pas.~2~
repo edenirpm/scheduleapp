@@ -1,0 +1,44 @@
+unit model.marcacao;
+
+interface
+uses
+ model.cliente,System.generics.collections;
+Type
+TMarcacao =class
+  private
+    FClientes: TObjectList<TCliente>;
+    FData: TDate;
+    procedure SetClientes(const Value: TObjectList<TCliente>);
+    procedure SetData(const Value: TDate);
+  published
+  property Data:TDate read FData write SetData;
+  property Clientes:TObjectList<TCliente> read FClientes write SetClientes;
+  constructor Create;
+  Destructor destroy;override;
+end;
+
+implementation
+
+{ TMarcacao }
+
+constructor TMarcacao.Create;
+begin
+FClientes:=TObjectList<TCliente>.create;
+end;
+
+destructor TMarcacao.destroy;
+begin
+FClientes.free;
+end;
+
+procedure TMarcacao.SetClientes(const Value: TObjectList<TCliente>);
+begin
+  FClientes := Value;
+end;
+
+procedure TMarcacao.SetData(const Value: TDate);
+begin
+  FData := Value;
+end;
+
+end.

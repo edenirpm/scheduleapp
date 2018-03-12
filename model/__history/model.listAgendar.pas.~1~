@@ -1,0 +1,37 @@
+unit model.listAgendar;
+
+interface
+uses
+model.agendar,system.Generics.collections;
+Type
+TListAgendar = class
+  private
+    FRequisicoes: TObjectList<TAgendar>;
+    procedure SetRequisicoes(const Value: TObjectList<TAgendar>);
+  published
+  property Requisicoes:TObjectList<TAgendar> read FRequisicoes write SetRequisicoes;
+  constructor create;
+  destructor destroy;override;
+end;
+
+implementation
+
+{ TListAgendar }
+
+constructor TListAgendar.create;
+begin
+ FRequisicoes:=TObjectList<TAgendar>.create;
+end;
+
+destructor TListAgendar.destroy;
+begin
+ FRequisicoes.Free;
+  inherited;
+end;
+
+procedure TListAgendar.SetRequisicoes(const Value: TObjectList<TAgendar>);
+begin
+  FRequisicoes := Value;
+end;
+
+end.

@@ -1,0 +1,70 @@
+unit UfrmCadClientes;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
+  FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
+  UfrmBase, FMX.Ani, FMX.Objects, FMX.MultiView, FMX.Controls.Presentation,
+  FMX.Layouts, FMX.Edit,Controller.FrmCadClientes;
+
+type
+  TFrmCadClientes = class(TFrmBase)
+    LayTopTitle: TLayout;
+    Rectangle1: TRectangle;
+    Text2: TText;
+    Layout1: TLayout;
+    Layout2: TLayout;
+    Edit1: TEdit;
+    Layout3: TLayout;
+    Layout4: TLayout;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Text3: TText;
+    Text4: TText;
+    Text5: TText;
+    Layout5: TLayout;
+    RoundRect1: TRoundRect;
+    Text6: TText;
+    procedure Text6Click(Sender: TObject);
+    procedure TextUp(Sender:TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmCadClientes: TFrmCadClientes;
+
+implementation
+
+{$R *.fmx}
+
+procedure TFrmCadClientes.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  inherited;
+ACtion:=TCloseAction.caFree;
+end;
+
+procedure TFrmCadClientes.Text6Click(Sender: TObject);
+var
+ Cadastrar:IControllerCliente;
+begin
+  inherited;
+ Cadastrar:=TControllerCliente.create;
+ Cadastrar.CadastrarCliente(Edit1.Text,edit2.Text,edit3.Text);
+ Close;
+end;
+
+procedure TFrmCadClientes.TextUp(Sender: TObject);
+var
+ Efect:IControllerCliente;
+begin
+ Efect:=TControllerCliente.create;
+ Efect.EfectTextToUP(Sender);
+end;
+
+end.

@@ -112,12 +112,8 @@ begin
 {$ifdef Android}
 Toast('Verificando Login',LongToast);
 {$endif}
-  Ctrl:=TControllerlogin.Create;
+   Ctrl:=TControllerlogin.Create;
    Self.ExecuteWork(Ctrl.Execute(LowerCase(edit1.Text),LowerCase(edit2.Text)));
-
-  
-  
-
 end;
 
 procedure TFrmLogin.Text5Click(Sender: TObject);

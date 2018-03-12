@@ -1,0 +1,30 @@
+unit model.telefone;
+
+interface
+Type
+TTelefone = class
+  private
+    FDDD: string;
+    FCelular: string;
+    procedure SetCelular(const Value: string);
+    procedure SetDDD(const Value: string);
+  published
+  property DDD:string read FDDD write SetDDD;
+  property Celular:string read FCelular write SetCelular;
+end;
+
+implementation
+
+{ TTelefone }
+
+procedure TTelefone.SetCelular(const Value: string);
+begin
+  FCelular := Value;
+end;
+
+procedure TTelefone.SetDDD(const Value: string);
+begin
+  FDDD := Value;
+end;
+
+end.

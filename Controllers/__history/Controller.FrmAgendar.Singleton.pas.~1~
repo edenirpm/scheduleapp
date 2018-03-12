@@ -1,0 +1,12 @@
+unit Controller.FrmAgendar.Singleton;
+
+interface
+Type
+TSingleton = class
+  property Ultimoclick:TObject;
+  property HoraSelecionada:string;
+end;
+
+implementation
+
+end.

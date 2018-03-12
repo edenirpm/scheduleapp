@@ -1,0 +1,37 @@
+inherited FrmCadClientes: TFrmCadClientes
+  Caption = 'FrmBase1'
+  DesignerMasterStyle = 3
+  inherited LayTudo: TLayout
+    inherited LayContent: TLayout
+      inherited MenuMultiview: TMultiView
+        Size.Width = 250.000000000000000000
+        Size.Height = 441.000000000000000000
+        Visible = False
+      end
+      object LayTopTitle: TLayout
+        Align = Top
+        Size.Width = 320.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        object Rectangle1: TRectangle
+          Align = Client
+          Fill.Color = xFFF08603
+          Size.Width = 320.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Kind = None
+        end
+        object Text2: TText
+          Align = Client
+          Size.Width = 320.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Cadastro de Clientes'
+          TextSettings.Font.Size = 18.000000000000000000
+          TextSettings.FontColor = claWhite
+        end
+      end
+    end
+  end
+end

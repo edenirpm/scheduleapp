@@ -1,0 +1,68 @@
+unit model.funcionario;
+
+interface
+uses
+ model.marcacao,System.generics.collections;
+type
+TFuncionario = class
+  private
+    FSenha: string;
+    FCordialidade: string;
+    FLogin: string;
+    FNome: string;
+    FMarcacoes: TObjectList<TMarcacao>;
+    procedure SetCordialidade(const Value: string);
+    procedure SetLogin(const Value: string);
+    procedure SetNome(const Value: string);
+    procedure SetSenha(const Value: string);
+    procedure SetMarcacoes(const Value: TObjectList<TMarcacao>);
+  public
+  property Cordialidade:string read FCordialidade write SetCordialidade;
+  property Nome:string read FNome write SetNome;
+  property Login:string read FLogin write SetLogin;
+  property Senha:string read FSenha write SetSenha;
+  property Marcacoes:TObjectList<TMarcacao> read FMarcacoes write SetMarcacoes;
+  Constructor Create;
+  Destructor destroy;override;
+end;
+
+implementation
+
+{ TFuncionario }
+
+constructor TFuncionario.Create;
+begin
+FMarcacoes:=TObjectList<TMarcacao>.create;
+end;
+
+destructor TFuncionario.destroy;
+begin
+FMarcacoes.Free;
+end;
+
+procedure TFuncionario.SetCordialidade(const Value: string);
+begin
+  FCordialidade := Value;
+end;
+
+procedure TFuncionario.SetLogin(const Value: string);
+begin
+  FLogin := Value;
+end;
+
+procedure TFuncionario.SetMarcacoes(const Value: TObjectList<TMarcacao>);
+begin
+  FMarcacoes := Value;
+end;
+
+procedure TFuncionario.SetNome(const Value: string);
+begin
+  FNome := Value;
+end;
+
+procedure TFuncionario.SetSenha(const Value: string);
+begin
+  FSenha := Value;
+end;
+
+end.

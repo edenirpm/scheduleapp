@@ -13,16 +13,16 @@ uses
 type
   TFrmCadastrosBase = class(TFrmBase)
     LayoTop: TLayout;
-    TabControl1: TTabControl;
+    TTabControl1: TTabControl;
     TabLista: TTabItem;
     TabEditar: TTabItem;
     TabVisualizar: TTabItem;
-    ListView1: TListView;
+    AListview1: TListView;
     LayBtnPlus: TLayout;
     LayPlus: TLayout;
     CirclePlus: TCircle;
     TextPlus: TText;
-    ImageList1: TImageList;
+    AImageList1: TImageList;
     BgSubtitle1: TRectangle;
     TextSubTitle: TText;
     LayFooter: TLayout;

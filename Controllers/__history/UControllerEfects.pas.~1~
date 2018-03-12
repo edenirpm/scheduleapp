@@ -1,0 +1,30 @@
+unit UControllerEfects;
+
+interface
+uses
+UnitIEfects;
+Type
+TController = class
+  private
+    FEfect: IEfect;
+    procedure SetEfect(const Value: IEfect);
+  published
+  property Efect:IEfect read FEfect write SetEfect;
+  constructor create;
+end;
+implementation
+
+{ TController }
+
+constructor TController.create;
+begin
+FEfect:=TEfectLabelsTextUP.Create;
+end;
+
+
+procedure TController.SetEfect(const Value: IEfect);
+begin
+  FEfect := Value;
+end;
+
+end.

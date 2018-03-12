@@ -1,0 +1,59 @@
+unit Controller.FrmLogin;
+
+interface
+uses
+UDao,model.agendar,model.ListAgendar;
+Type
+IControllerLogin = interface
+ ['{D29855E8-68DC-4B0D-8E9E-7B19BD278BBC}']
+ function CreateSingleton:IControllerLogin;
+ function ReleaseInstance:IControllerLogin;
+ function doLogin(AUser,APassword:string):Boolean;
+end;
+
+TControllerLogin = class (TInterfacedObject,IControllerLogin)
+  function doLogin(AUser,APassword:string):Boolean;
+   function CreateSingleton:IControllerLogin;
+   function ReleaseInstance:IControllerLogin;
+end;
+
+
+implementation
+
+uses
+  FMX.Dialogs;
+
+{ TController }
+
+function TControllerLogin.CreateSingleton: IControllerLogin;
+var
+Agendar:TAgendar;
+begin
+ Agendar.GetInstance;
+end;
+
+function TControllerLogin.doLogin(AUser, APassword:string): Boolean;
+var
+Agendar:TAgendar;
+Dao:IDao;
+begin
+  Dao:=TDao.create;
+  Dao.doLogin(AUSer,Apassword);
+  Agendar:=TAgendar.GetInstance;
+  try
+     if (Auser = Agendar.Empresa.Login) And (APassword = Agendar.Empresa.Senha) And (Agendar.Empresa.Bloqued = false) then
+     Result:=true
+     else
+     result:=false;
+  finally
+  end;
+end;
+
+function TControllerLogin.ReleaseInstance: IControllerLogin;
+var
+ Agendar:TAgendar;
+begin
+ Agendar.GetInstance.ReleaseInstance;
+end;
+
+end.

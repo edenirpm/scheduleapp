@@ -46,7 +46,9 @@ uses
   UfrmHistorico in 'View\UfrmHistorico.pas' {FrmHistorico},
   Controller.frmHistorico in 'Controllers\Controller.frmHistorico.pas',
   model.tratamento in 'model\model.tratamento.pas',
-  model.orcamento in 'model\model.orcamento.pas';
+  model.orcamento in 'model\model.orcamento.pas',
+  Controller.FrmOrcamentos in 'Controllers\Controller.FrmOrcamentos.pas',
+  UfrmCadastrarOrcamento in 'View\UfrmCadastrarOrcamento.pas' {FrmCadastrarOrcamento};
 
 {$R *.res}
 
@@ -54,5 +56,6 @@ begin
   Application.Initialize;
   Application.CreateForm(TFrmLogin, FrmLogin);
   Application.CreateForm(TFrmBase, FrmBase);
+  Application.CreateForm(TFrmCadastrarOrcamento, FrmCadastrarOrcamento);
   Application.Run;
 end.

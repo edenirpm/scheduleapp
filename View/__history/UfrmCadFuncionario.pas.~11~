@@ -1,0 +1,86 @@
+unit UfrmCadFuncionario;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
+  FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
+  UfrmBase, FMX.Edit, FMX.Objects, FMX.MultiView, FMX.Controls.Presentation,
+  FMX.Layouts,UControllers, FMX.ListBox,model.singletons;
+
+type
+  TFrmCadFuncionario = class(TFrmBase)
+    Layout1: TLayout;
+    RoundRect1: TRoundRect;
+    Text2: TText;
+    Layout2: TLayout;
+    Layout3: TLayout;
+    Edit1: TEdit;
+    Text3: TText;
+    Layout4: TLayout;
+    Layout5: TLayout;
+    Edit2: TEdit;
+    Text4: TText;
+    Layout6: TLayout;
+    Layout7: TLayout;
+    Edit3: TEdit;
+    Text5: TText;
+    Layout8: TLayout;
+    ComboBox1: TComboBox;
+    procedure Text5Click(Sender: TObject);
+    procedure Text2Click(Sender: TObject);
+    procedure CadastrarFuncionario;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmCadFuncionario: TFrmCadFuncionario;
+
+implementation
+
+{$R *.fmx}
+
+procedure TFrmCadFuncionario.CadastrarFuncionario;
+var
+cord:string;
+Funcionario:TController;
+begin
+  case ComboBox1.ItemIndex of
+   0:cord:='Sr.';
+   1:cord:='Sra.';
+   2:cord:='Dr.';
+   3:cord:='Dra.';
+  end;
+
+  try
+ // Funcionario.Cadastros.CadastrarFuncionario(cord,edit3.Text,edit2.Text,edit1.Text,model.singletons.TSingletons.GetInstance.Funcionarios);
+  finally
+  Funcionario.DisposeOf;
+  end;
+
+end;
+
+procedure TFrmCadFuncionario.Text2Click(Sender: TObject);
+begin
+CadastrarFuncionario;
+Close;
+end;
+
+procedure TFrmCadFuncionario.Text5Click(Sender: TObject);
+var
+ Efect:TController;
+begin
+  inherited;
+   try
+    Efect:=TController.Create;
+    Efect.Efeitos.EfectTextEdit(Sender);
+   finally
+    efect.DisposeOf;
+   end;
+
+end;
+
+end.

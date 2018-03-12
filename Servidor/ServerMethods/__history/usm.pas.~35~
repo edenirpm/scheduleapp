@@ -1,0 +1,164 @@
+unit usm;
+
+interface
+
+uses System.SysUtils, System.Classes, System.Json,
+    DataSnap.DSProviderDataModuleAdapter,System.Generics.collections,
+    Datasnap.DSServer, Datasnap.DSAuth, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
+  FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.MongoDB,
+  FireDAC.Phys.MongoDBDef, System.Rtti, System.JSON.Types, System.JSON.Readers,
+  System.JSON.BSON, System.JSON.Builders, FireDAC.Phys.MongoDBWrapper,
+  FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client,Rest.Json,model.agendar;
+
+type
+  Tsm = class(TDSServerModule)
+    FDConnection1: TFDConnection;
+    FDPhysMongoDriverLink1: TFDPhysMongoDriverLink;
+  private
+   var
+   Conexao:TMongoConnection;
+   function Save(AObject: TObject;DataBase,Table:string):boolean;
+    { Private declarations }
+  public
+    { Public declarations }
+    function Documentos:TJSONObject;//Lista todos Documentos // Metodo Get
+    function acceptDocumentos(AJsonObject:TJsonObject):string; //FazUpdate //Metodo Put
+    function cancelDocumentos(IDObjectJson:string):TJsonValue; //FazDelete //Metodo Delete
+    function updateDocumentos(ObjectJson:TJsonObject):TJsonValue; //FazInsert //Metodo Post
+
+    function doLogin(Auser,Apassword:string):TJsonValue;
+  end;
+
+implementation
+
+
+{$R *.dfm}
+
+
+{ Tsm }
+
+function Tsm.acceptDocumentos(AJsonObject:TJsonObject): string;
+var
+ MongoDoc:TMongoDocument;
+ Agendar:TAgendar;
+begin
+   Agendar:= TJson.JsonToObject<TAgendar>(AJsonObject);
+   FDConnection1.Connected:=true;
+   Conexao:=TMongoConnection(FDConnection1.CliObj);
+   try
+   Conexao['AgendamentoOnLine']['Documentos'].Remove()
+    .Match()
+      .Add('empresa.login',agendar.Empresa.Login)
+      .add('empresa.senha',agendar.Empresa.senha).&End
+    .&Exec;
+   finally
+     try
+      MongoDoc:= TMongoDocument.Create(Conexao.Env);
+      MongoDoc.Append(TJson.ObjectToJsonString(Agendar));
+      Conexao['AgendamentoOnLine']['Documentos'].Insert(MongoDoc);
+    finally
+      MongoDoc.Free;
+
+    end;
+    Agendar.Free;
+   end;
+end;
+
+function Tsm.cancelDocumentos(IDObjectJson: string): TJsonValue;
+begin
+
+end;
+
+function Tsm.Documentos: TJSONObject;
+var
+oCrs:IMongoCursor;
+Agendar:TAgendar;
+Agendamentos:TObjectList<TAgendar>;
+begin
+   try
+    FDConnection1.Connected:=true;
+    Conexao:=TMongoConnection(FDConnection1.CliObj);
+    oCrs:=Conexao['AgendamentoOnLine']['Documentos'].Find();
+    Agendamentos:=TObjectList<TAgendar>.create;
+     while oCrs.Next do
+        begin
+          Agendar:=TAgendar.create;
+          Agendar:=TJson.JsonToObject<TAgendar>(oCrs.Doc.AsJSON);
+          Agendamentos.Add(Agendar);
+        end;
+    Result:=Tjson.ObjectToJsonObject(Agendamentos);
+   finally
+    Agendamentos.Free;
+   end;
+end;
+
+function Tsm.doLogin(Auser, Apassword: string): TJsonValue;
+ var
+ oCrs:IMongoCursor;
+ Agendar:TAgendar;
+begin
+ try
+   Agendar:=Tagendar.create;
+     FDConnection1.Connected:=true;
+    Conexao:=TMongoConnection(FDConnection1.CliObj);
+    oCrs:=Conexao['AgendamentoOnLine']['Documentos'].Find()
+    .Match()
+      .Add('empresa.login',Auser)
+      .Add('empresa.senha',Apassword)
+      .&End;
+      while oCrs.Next do
+       begin
+         Agendar:=TJson.JsonToObject<TAgendar>(oCrs.doc.Asjson);
+       end;
+       Result:=Tjson.ObjectToJsonObject(Agendar);
+ finally
+ Agendar.Free;
+ end;
+
+end;
+
+function Tsm.Save(AObject: TObject; DataBase, Table: string): boolean;
+var
+MongoDoc:TMongoDocument;
+begin
+  FDConnection1.Connected:=true;
+  Conexao:=TMongoConnection(FDConnection1.CliObj);
+ try
+    try
+      MongoDoc:= TMongoDocument.Create(Conexao.Env);
+      MongoDoc.Append(TJson.ObjectToJsonString(AObject));
+      Conexao[DataBase][Table].Insert(MongoDoc);
+      Result:=true;
+    finally
+      MongoDoc.Free;
+  //FDConnection1.Close;
+    end;
+ Except
+  Result:=False;
+ end;
+ 
+end;
+
+
+
+function Tsm.updateDocumentos(ObjectJson: TJsonObject): TJsonValue;
+var
+ Documento:TAgendar;
+begin
+  Documento:=TAgendar.create;
+  try
+   Documento:=TJson.JsonToObject<TAgendar>(ObjectJson.ToJSON);
+  finally
+   if Save(Documento,'AgendamentoOnLine','Documentos') = true then
+      begin
+       Result:=TJSONString.Create('Documento inserido com sucesso!');
+      end else
+           begin
+           Result:=TJSONString.Create('Error');
+           end;
+  end;
+end;
+
+end.
+

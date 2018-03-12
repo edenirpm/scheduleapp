@@ -1,0 +1,55 @@
+unit UfrmCadServico;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
+  FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
+  UfrmBase, FMX.Objects, FMX.Edit, FMX.MultiView, FMX.Controls.Presentation,
+  FMX.Layouts,UControllers;
+
+type
+  TFrmBase1 = class(TFrmBase)
+    Layout1: TLayout;
+    Layout6: TLayout;
+    Layout7: TLayout;
+    Edit3: TEdit;
+    Text5: TText;
+    RoundRect1: TRoundRect;
+    Text2: TText;
+    procedure Text2Click(Sender: TObject);
+    procedure Text5Click(Sender: TObject);
+  private
+  procedure CadastrarServico;
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmBase1: TFrmBase1;
+
+implementation
+
+{$R *.fmx}
+
+procedure TFrmBase1.CadastrarServico;
+begin
+close;
+end;
+
+procedure TFrmBase1.Text2Click(Sender: TObject);
+begin
+  inherited;
+CadastrarServico;
+end;
+
+procedure TFrmBase1.Text5Click(Sender: TObject);
+var
+Controller:IController;
+begin
+  inherited;
+   Controller.EfectTextToUp(Sender);
+end;
+
+end.

@@ -44,6 +44,9 @@ type
     Text2: TText;
     Text4: TText;
     Text6: TText;
+    Rectangle5: TRectangle;
+    Text7: TText;
+    ChangeTabAction3: TChangeTabAction;
     procedure ListView1ItemClickEx(const Sender: TObject; ItemIndex: Integer;
       const LocalClickPos: TPointF; const ItemObject: TListItemDrawable);
     procedure FormActivate(Sender: TObject);
@@ -52,6 +55,8 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Image1Click(Sender: TObject);
     procedure Text2Click(Sender: TObject);
+    procedure Text4Click(Sender: TObject);
+    procedure Text5Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -63,7 +68,7 @@ var
   NameClient:string;
 implementation
  uses
-  Controller.FrmHistorico;
+  Controller.FrmHistorico,UfrmCadastrarOrcamento;
 
 {$R *.fmx}
 
@@ -89,7 +94,7 @@ begin
 if key=vkHardwareBack then
   begin
    Key:=0;
-    if TabControl1.ActiveTab = TabItem2 then
+    if (TabControl1.ActiveTab = TabItem2) or (TabControl1.ActiveTab = TabItem3) then
     begin
       Key:=0;
       ChangeTabAction2.ExecuteTarget(self);
@@ -130,6 +135,28 @@ begin
   ChangeTabAction1.ExecuteTarget(self);
  end;
 
+end;
+
+procedure TFrmHistorico.Text4Click(Sender: TObject);
+var
+ Ctrl:IController;
+begin
+  inherited;
+ try
+   Ctrl:=TController.create;
+   Ctrl.Listarorcamentos(Listview3,Imagelist1,NameClient);
+ finally
+  LayQuestion.Visible:=False;
+  ChangeTabAction3.ExecuteTarget(self);
+ end;
+
+end;
+
+procedure TFrmHistorico.Text5Click(Sender: TObject);
+begin
+  inherited;
+Application.CreateForm(TFrmCadastrarOrcamento, FrmCadastrarOrcamento);
+FrmCadastrarOrcamento.show;
 end;
 
 end.

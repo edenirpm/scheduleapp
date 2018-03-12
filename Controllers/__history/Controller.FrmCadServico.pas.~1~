@@ -1,0 +1,15 @@
+unit Controller.FrmCadServico;
+
+interface
+Type
+IControllerServico = interface
+  ['{B1E672A9-E875-4328-9120-F44FC684DFB9}']
+end;
+
+TControllerServico = class (TInterfacedObject,IControllerServico)
+
+end;
+
+implementation
+
+end.

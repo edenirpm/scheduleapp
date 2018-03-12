@@ -1,0 +1,16 @@
+unit model.cliente;
+
+interface
+uses
+ model.endereco,
+ model.telefone;
+Type
+TCliente = class
+  property Nome:string;
+  property Telefone:TTelefone;
+  property Endereco:TEndereco;
+end;
+
+implementation
+
+end.

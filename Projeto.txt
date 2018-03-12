@@ -1,0 +1,39 @@
+  Nome Empresa
+  Endereco Empresa
+  Login Empresa
+  Senha Empresa
+  
+  +Servicos
+    Consulta
+    Retorno
+  
+  +Clientes
+    Carmen Balbino
+    Edenir Martins
+  
+  +Funcionarios  
+
+  +Agendar                        Parametros= Empresa/Funcionario/Data -> Retornar uma lista de clientes.
+     Funcionarios 
+      -EdenirFuncionario
+         Nome
+         Login
+         Senha
+       	-Marcacoes
+          Marcacao
+            Data:20/01/2019
+               Horas
+                Hora:07:45
+	         Ciente                           //Forin Para cada cliente na minha lista de clientes
+                  Nome: Carmen Balbino            //Onde Hora for igual ao label - pintar o rectangle.
+                  Celular:991770764
+                 Confirmacao:Confirmado
+                 Servico:Consulta.
+
+                 Hora:08:30
+  	       Ciente                           //Forin Para cada cliente na minha lista de clientes
+                   Nome: Edenir P. Martins            //Onde Hora for igual ao label - pintar o rectangle.
+                   Celular:991770764
+                Confirmacao:Confirmado
+               Servico:Consulta.          
+ 

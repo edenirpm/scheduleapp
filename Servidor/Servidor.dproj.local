@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/02/18 13:26:30.000.035,=C:\Users\MAC\Desktop\AgendaMais\Servidor\FormUnit1.pas</Transaction>
+    <Transaction>2018/02/18 13:26:32.000.381,=C:\Users\MAC\Desktop\AgendaMais\Servidor\ServerMethodsUnit1.pas</Transaction>
+    <Transaction>2018/02/18 13:26:34.000.368,=C:\Users\MAC\Desktop\AgendaMais\Servidor\ServerContainerUnit1.pas</Transaction>
+    <Transaction>2018/02/18 13:26:36.000.711,=C:\Users\MAC\Desktop\AgendaMais\Servidor\WebModuleUnit1.pas</Transaction>
+    <Transaction>2018/02/18 13:26:38.000.932,=C:\Users\MAC\Desktop\AgendaMais\Servidor\js\base64-min.js</Transaction>
+    <Transaction>2018/02/18 13:26:38.000.841,=C:\Users\MAC\Desktop\AgendaMais\Servidor\js\json2.js</Transaction>
+    <Transaction>2018/02/18 13:26:38.000.819,=C:\Users\MAC\Desktop\AgendaMais\Servidor\js\serverfunctionexecutor.js</Transaction>
+    <Transaction>2018/02/18 13:26:38.000.904,=C:\Users\MAC\Desktop\AgendaMais\Servidor\js\serverfunctions.js</Transaction>
+    <Transaction>2018/02/18 13:26:38.000.873,=C:\Users\MAC\Desktop\AgendaMais\Servidor\js\callbackframework.js</Transaction>
+    <Transaction>2018/02/18 13:26:38.000.797,=C:\Users\MAC\Desktop\AgendaMais\Servidor\js\base64.js</Transaction>
+    <Transaction>2018/02/18 13:26:38.000.965,=C:\Users\MAC\Desktop\AgendaMais\Servidor\js\json2-min.js</Transaction>
+    <Transaction>2018/02/18 13:26:39.000.048,=C:\Users\MAC\Desktop\AgendaMais\Servidor\js\callbackframework-min.js</Transaction>
+    <Transaction>2018/02/18 13:26:39.000.006,=C:\Users\MAC\Desktop\AgendaMais\Servidor\js\serverfunctionexecutor-min.js</Transaction>
+    <Transaction>2018/02/18 13:32:26.000.449,C:\Users\MAC\Desktop\AgendaMais\Servidor\FormUnit1.pas=C:\Users\MAC\Desktop\AgendaMais\Servidor\view\UfrmStartServer.pas</Transaction>
+    <Transaction>2018/02/18 13:32:26.000.449,C:\Users\MAC\Desktop\AgendaMais\Servidor\FormUnit1.dfm=C:\Users\MAC\Desktop\AgendaMais\Servidor\view\UfrmStartServer.dfm</Transaction>
+    <Transaction>2018/02/18 13:33:29.000.332,C:\Users\MAC\Desktop\AgendaMais\Servidor\ServerMethodsUnit1.dfm=C:\Users\MAC\Desktop\AgendaMais\Servidor\ServerMethods\usm.dfm</Transaction>
+    <Transaction>2018/02/18 13:33:29.000.332,C:\Users\MAC\Desktop\AgendaMais\Servidor\ServerMethodsUnit1.pas=C:\Users\MAC\Desktop\AgendaMais\Servidor\ServerMethods\usm.pas</Transaction>
+    <Transaction>2018/02/18 13:33:51.000.116,C:\Users\MAC\Desktop\AgendaMais\Servidor\WebModuleUnit1.dfm=C:\Users\MAC\Desktop\AgendaMais\Servidor\WebModule\uwm.dfm</Transaction>
+    <Transaction>2018/02/18 13:33:51.000.116,C:\Users\MAC\Desktop\AgendaMais\Servidor\WebModuleUnit1.pas=C:\Users\MAC\Desktop\AgendaMais\Servidor\WebModule\uwm.pas</Transaction>
+    <Transaction>2018/02/18 13:34:11.000.437,C:\Users\MAC\Desktop\AgendaMais\Servidor\ServerContainerUnit1.dfm=C:\Users\MAC\Desktop\AgendaMais\Servidor\ServerContainer\usc.dfm</Transaction>
+    <Transaction>2018/02/18 13:34:11.000.437,C:\Users\MAC\Desktop\AgendaMais\Servidor\ServerContainerUnit1.pas=C:\Users\MAC\Desktop\AgendaMais\Servidor\ServerContainer\usc.pas</Transaction>
+    <Transaction>2018/02/18 13:53:31.000.411,=C:\Users\MAC\Desktop\AgendaMais\model\mode.agendamento.pas</Transaction>
+    <Transaction>2018/02/18 13:53:31.000.458,=C:\Users\MAC\Desktop\AgendaMais\model\model.agendamentos.pas</Transaction>
+    <Transaction>2018/02/18 13:54:15.000.919,=C:\Users\MAC\Desktop\AgendaMais\model\model.agendar.pas</Transaction>
+    <Transaction>2018/02/18 13:54:26.000.652,=C:\Users\MAC\Desktop\AgendaMais\model\model.cliente.pas</Transaction>
+    <Transaction>2018/02/18 13:54:44.000.096,=C:\Users\MAC\Desktop\AgendaMais\model\model.contato.agenda.pas</Transaction>
+    <Transaction>2018/02/18 13:54:44.000.549,=C:\Users\MAC\Desktop\AgendaMais\model\model.servico.pas</Transaction>
+    <Transaction>2018/02/18 13:54:44.000.154,=C:\Users\MAC\Desktop\AgendaMais\model\model.empresa.pas</Transaction>
+    <Transaction>2018/02/18 13:54:44.000.413,=C:\Users\MAC\Desktop\AgendaMais\model\model.marcacao.pas</Transaction>
+    <Transaction>2018/02/18 13:54:44.000.218,=C:\Users\MAC\Desktop\AgendaMais\model\model.endereco.pas</Transaction>
+    <Transaction>2018/02/18 13:54:44.000.281,=C:\Users\MAC\Desktop\AgendaMais\model\model.funcionario.pas</Transaction>
+    <Transaction>2018/02/18 13:54:54.000.713,=C:\Users\MAC\Desktop\AgendaMais\model\model.telefone.pas</Transaction>
+    <Transaction>2018/02/18 13:55:42.000.439,=C:\Users\MAC\Desktop\AgendaMais\Interfaces\UnitIefects.pas</Transaction>
+    <Transaction>2018/02/18 13:55:42.000.505,=C:\Users\MAC\Desktop\AgendaMais\Interfaces\UWorks.pas</Transaction>
+    <Transaction>2018/02/23 12:44:13.000.212,=C:\Users\MAC\Desktop\AgendaMais\model\model.agendados.pas</Transaction>
+    <Transaction>2018/03/10 07:25:11.000.572,=C:\Users\MAC\Desktop\AgendaMais\model\model.orcamento.pas</Transaction>
+    <Transaction>2018/03/10 07:25:27.000.272,=C:\Users\MAC\Desktop\AgendaMais\model\model.tratamento.pas</Transaction>
+  </Transactions>
+</BorlandProject>

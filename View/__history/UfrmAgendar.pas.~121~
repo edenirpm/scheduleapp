@@ -1,0 +1,554 @@
+unit UfrmAgendar;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
+  FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
+  UfrmBase, FMX.ListView.Types, FMX.ListView.Appearances,
+  FMX.ListView.Adapters.Base, FMX.Objects, FMX.ListView, FMX.TabControl,
+  FMX.MultiView, FMX.Controls.Presentation, FMX.Layouts, Fmx.Bind.GenData,
+  Data.Bind.GenData, Data.Bind.Components, Data.Bind.ObjectScope, System.Rtti,
+  System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.EngExt, Fmx.Bind.DBEngExt,
+  System.Actions, FMX.ActnList, FMX.DateTimeCtrls,Controller.FrmAgendar,UControllerCadastros,
+  System.ImageList,{$ifdef Android}Androidapi.JNI.Toast,{$endif} FMX.ImgList,
+  FMX.Ani,UFrmCadClientes,UfrmCalendar, FMX.ListBox;
+
+type
+  TFrmAgendar = class(TFrmBase)
+    Layout1: TLayout;
+    Image1: TImage;
+    LayTopinfoSup: TLayout;
+    TabControl1: TTabControl;
+    TabItem1: TTabItem;
+    TabItem2: TTabItem;
+    ListView1: TListView;
+    Layout3: TLayout;
+    Layout4: TLayout;
+    Circle1: TCircle;
+    Text2: TText;
+    ListView2: TListView;
+    PrototypeBindSource1: TPrototypeBindSource;
+    BindingsList1: TBindingsList;
+    StyleBook1: TStyleBook;
+    Text3: TText;
+    Text4: TText;
+    LinkListControlToField1: TLinkListControlToField;
+    Layout5: TLayout;
+    Rectangle1: TRectangle;
+    Layout6: TLayout;
+    Text5: TText;
+    Rectangle2: TRectangle;
+    ListView3: TListView;
+    Layout7: TLayout;
+    Layout8: TLayout;
+    Circle2: TCircle;
+    Text6: TText;
+    LinkListControlToField2: TLinkListControlToField;
+    TabItem3: TTabItem;
+    Layout9: TLayout;
+    Rectangle3: TRectangle;
+    Layout10: TLayout;
+    Rectangle4: TRectangle;
+    Text7: TText;
+    ActionList1: TActionList;
+    NextTabAction1: TNextTabAction;
+    Layout11: TLayout;
+    Rectangle5: TRectangle;
+    Text8: TText;
+    LayNomeCliente: TLayout;
+    Rectangle6: TRectangle;
+    Text9: TText;
+    PreviousTabAction1: TPreviousTabAction;
+    VertScrollBox1: TVertScrollBox;
+    GridPanelLayout1: TGridPanelLayout;
+    Rectangle7: TRectangle;
+    Label1: TLabel;
+    Rectangle8: TRectangle;
+    Label2: TLabel;
+    Rectangle9: TRectangle;
+    Label3: TLabel;
+    Rectangle10: TRectangle;
+    Label4: TLabel;
+    Rectangle11: TRectangle;
+    Label5: TLabel;
+    Rectangle12: TRectangle;
+    Label6: TLabel;
+    Rectangle13: TRectangle;
+    Label7: TLabel;
+    Rectangle14: TRectangle;
+    Label8: TLabel;
+    Rectangle15: TRectangle;
+    Label9: TLabel;
+    Rectangle16: TRectangle;
+    Label10: TLabel;
+    Rectangle17: TRectangle;
+    Label11: TLabel;
+    Rectangle18: TRectangle;
+    Label12: TLabel;
+    Rectangle19: TRectangle;
+    Label13: TLabel;
+    Rectangle20: TRectangle;
+    Label14: TLabel;
+    Rectangle21: TRectangle;
+    Label15: TLabel;
+    Rectangle22: TRectangle;
+    Label16: TLabel;
+    Rectangle23: TRectangle;
+    Label17: TLabel;
+    Rectangle24: TRectangle;
+    Label18: TLabel;
+    Rectangle25: TRectangle;
+    Label19: TLabel;
+    Rectangle26: TRectangle;
+    Label20: TLabel;
+    Rectangle27: TRectangle;
+    Label21: TLabel;
+    Rectangle28: TRectangle;
+    Label22: TLabel;
+    Rectangle29: TRectangle;
+    Label23: TLabel;
+    Rectangle30: TRectangle;
+    Label24: TLabel;
+    Rectangle31: TRectangle;
+    Label25: TLabel;
+    Rectangle32: TRectangle;
+    Label26: TLabel;
+    Rectangle33: TRectangle;
+    Label27: TLabel;
+    Rectangle34: TRectangle;
+    Label28: TLabel;
+    Rectangle35: TRectangle;
+    Label29: TLabel;
+    Rectangle36: TRectangle;
+    Label30: TLabel;
+    Rectangle37: TRectangle;
+    Label31: TLabel;
+    Rectangle38: TRectangle;
+    Label32: TLabel;
+    Rectangle39: TRectangle;
+    Label33: TLabel;
+    Rectangle40: TRectangle;
+    Label34: TLabel;
+    Rectangle41: TRectangle;
+    Label35: TLabel;
+    Rectangle42: TRectangle;
+    Label36: TLabel;
+    Rectangle43: TRectangle;
+    Label37: TLabel;
+    Rectangle44: TRectangle;
+    Label38: TLabel;
+    Rectangle45: TRectangle;
+    Label39: TLabel;
+    Rectangle46: TRectangle;
+    Label40: TLabel;
+    Rectangle47: TRectangle;
+    Label41: TLabel;
+    Rectangle48: TRectangle;
+    Label42: TLabel;
+    Rectangle49: TRectangle;
+    Label43: TLabel;
+    Rectangle50: TRectangle;
+    Label44: TLabel;
+    Rectangle51: TRectangle;
+    Label45: TLabel;
+    Rectangle52: TRectangle;
+    Label46: TLabel;
+    Rectangle53: TRectangle;
+    Label47: TLabel;
+    Rectangle54: TRectangle;
+    Label48: TLabel;
+    Layout13: TLayout;
+    Text10: TText;
+    Layout2: TLayout;
+    Rectangle55: TRectangle;
+    Text11: TText;
+    Rectangle56: TRectangle;
+    Text12: TText;
+    Rectangle57: TRectangle;
+    Text13: TText;
+    ChangeTabAction1: TChangeTabAction;
+    LayServico: TLayout;
+    RecGBServico: TRectangle;
+    Layout12: TLayout;
+    Layout14: TLayout;
+    Text14: TText;
+    Layout15: TLayout;
+    Rectangle58: TRectangle;
+    Text15: TText;
+    Rectangle59: TRectangle;
+    ImageList1: TImageList;
+    ListView4: TListView;
+    Layout16: TLayout;
+    Layout17: TLayout;
+    Circle3: TCircle;
+    Text16: TText;
+    TabItem4: TTabItem;
+    Layout18: TLayout;
+    Layout19: TLayout;
+    Layout20: TLayout;
+    Layout21: TLayout;
+    Layout22: TLayout;
+    Rectangle60: TRectangle;
+    Text17: TText;
+    Text18: TText;
+    Text19: TText;
+    Layout23: TLayout;
+    Text20: TText;
+    Text21: TText;
+    Layout24: TLayout;
+    Rectangle61: TRectangle;
+    Layout25: TLayout;
+    ListView5: TListView;
+    Layout26: TLayout;
+    Text22: TText;
+    ChangeTabAction2: TChangeTabAction;
+    Text23: TText;
+    GridPanelLayout2: TGridPanelLayout;
+    Layout27: TLayout;
+    Layout28: TLayout;
+    Layout29: TLayout;
+    Layout30: TLayout;
+    Text24: TText;
+    Text25: TText;
+    Text26: TText;
+    Text27: TText;
+    Image2: TImage;
+    Image3: TImage;
+    Image4: TImage;
+    Image5: TImage;
+    Layout31: TLayout;
+    Layout32: TLayout;
+    Circle4: TCircle;
+    Text28: TText;
+    Image6: TImage;
+    Image7: TImage;
+    LayoutSolicitacoes: TLayout;
+    Rectangle62: TRectangle;
+    Rectangle63: TRectangle;
+    Layout34: TLayout;
+    Text29: TText;
+    GridPanelLayout3: TGridPanelLayout;
+    Rectangle64: TRectangle;
+    Rectangle65: TRectangle;
+    Text30: TText;
+    Text31: TText;
+    LayoutDesmarcar: TLayout;
+    Rectangle66: TRectangle;
+    Rectangle67: TRectangle;
+    Layout35: TLayout;
+    Text32: TText;
+    GridPanelLayout4: TGridPanelLayout;
+    Rectangle68: TRectangle;
+    Text33: TText;
+    Rectangle69: TRectangle;
+    Text34: TText;
+    procedure Text2Click(Sender: TObject);
+    procedure ListView3ItemClickEx(const Sender: TObject; ItemIndex: Integer;
+      const LocalClickPos: TPointF; const ItemObject: TListItemDrawable);
+    procedure Text9Click(Sender: TObject);
+    procedure EscolherHora(Sender:TObject);
+    procedure VerificarHorariosDisponiveis(AIndexFuncionario:integer);
+    procedure FormActivate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Text8Click(Sender: TObject);
+    procedure Text15Click(Sender: TObject);
+    procedure FormKeyUp(Sender: TObject; var Key: Word; var KeyChar: Char;
+      Shift: TShiftState);
+    procedure ListView4ItemClickEx(const Sender: TObject; ItemIndex: Integer;
+      const LocalClickPos: TPointF; const ItemObject: TListItemDrawable);
+    procedure Image2Click(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
+    procedure Text28Click(Sender: TObject);
+    procedure Image5Click(Sender: TObject);
+    procedure Image6Click(Sender: TObject);
+    procedure Image7Click(Sender: TObject);
+    procedure Text31Click(Sender: TObject);
+    procedure Text30Click(Sender: TObject);
+    procedure Text34Click(Sender: TObject);
+    procedure Text33Click(Sender: TObject);
+  private
+  procedure ListarServicos;
+  procedure ListarClientes;
+  procedure Confirmar;
+  procedure Desmarcar;
+  procedure SolicitarConfirmacao;
+  procedure Agendar;
+  procedure CarregarContatosAgenda;
+ var
+  ctrl:IController;
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmAgendar: TFrmAgendar;
+
+implementation
+
+{$R *.fmx}
+
+
+procedure TFrmAgendar.Agendar;
+begin
+ ChangeTabAction1.ExecuteTarget(self);
+end;
+
+procedure TFrmAgendar.CarregarContatosAgenda;
+var
+ Ctrl:IController;
+begin
+ Ctrl:=TController.create;
+ Ctrl.ContatosDaAgenda;
+end;
+
+procedure TFrmAgendar.Confirmar;
+begin
+ExecuteWork(Ctrl.ConfirmarAgendamento);
+VerificarHorariosDisponiveis(0);
+PreviousTabAction1.ExecuteTarget(self);
+end;
+
+procedure TFrmAgendar.Desmarcar;
+begin
+ExecuteWork(Ctrl.DesmarcarAgendamento);
+VerificarHorariosDisponiveis(0);
+PreviousTabAction1.ExecuteTarget(self);
+end;
+
+procedure TFrmAgendar.EscolherHora(Sender: TObject);
+begin
+ ExecuteWork(Ctrl.EscolherHora(Sender,Ctrl.GetIndexFuncionario,ChangeTabAction2));
+ //Ctrl.EscolherHora(Sender,Ctrl.GetIndexFuncionario,ChangeTabAction2);
+ Ctrl.DetalhesDoAgendamento(Text18,Text21,Text19,text20,Text23,listview5);
+
+ end;
+
+
+
+
+procedure TFrmAgendar.FormActivate(Sender: TObject);
+begin
+  inherited;
+VerificarHorariosDisponiveis(0);
+ListarClientes;
+end;
+
+procedure TFrmAgendar.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  inherited;
+//Ctrl.Agendar;
+Action:=TCloseAction.caFree;
+end;
+
+procedure TFrmAgendar.FormCreate(Sender: TObject);
+begin
+  inherited;
+Ctrl:=TController.create;
+ctrl.CreateMacacao;
+end;
+
+procedure TFrmAgendar.FormKeyUp(Sender: TObject; var Key: Word;
+  var KeyChar: Char; Shift: TShiftState);
+begin
+  inherited;
+if key=vkHardwareBack then
+   begin
+     Key:=0;
+     if (TabControl1.ActiveTab = TabItem3) and (LayoutSolicitacoes.Visible = false) then
+     begin
+      ctrl.CancelMarcacao;
+      self.close;
+     end;
+      if (TabControl1.ActiveTab = TabItem3) and (LayoutSolicitacoes.Visible = true) then
+     begin
+      LayoutSolicitacoes.Visible:=false;
+     end;
+
+
+     if TabControl1.ActiveTab = Tabitem4 then
+     begin
+       PreviousTabAction1.ExecuteTarget(self);
+     end;
+
+   end;
+end;
+
+procedure TFrmAgendar.FormShow(Sender: TObject);
+begin
+  inherited;
+//  Ctrl.AgendamentoFicticio;
+ListarServicos;
+ListarClientes;
+CarregarContatosAgenda;
+end;
+
+procedure TFrmAgendar.Image2Click(Sender: TObject);
+begin
+  inherited;
+confirmar;
+end;
+
+procedure TFrmAgendar.Image3Click(Sender: TObject);
+begin
+  inherited;
+Desmarcar;
+end;
+
+procedure TFrmAgendar.Image5Click(Sender: TObject);
+begin
+  inherited;
+ Ctrl.SendWhatsappConfirmation();
+end;
+
+procedure TFrmAgendar.Image6Click(Sender: TObject);
+begin
+  LayoutSolicitacoes.Visible:=true;
+end;
+
+procedure TFrmAgendar.Image7Click(Sender: TObject);
+begin
+  LayoutDesmarcar.Visible:=true;
+end;
+
+procedure TFrmAgendar.ListarClientes;
+var
+Controller:ICadastros;
+begin
+   Controller:=TControllerCadastros.create;
+   Controller.ListarClientes(Listview3,imagelist1);
+end;
+
+procedure TFrmAgendar.ListarServicos;
+var
+Controller:ICadastros;
+begin
+   Controller:=TControllerCadastros.create;
+   Controller.ListarServicos(Listview4,imagelist1);
+end;
+
+procedure TFrmAgendar.ListView3ItemClickEx(const Sender: TObject;
+  ItemIndex: Integer; const LocalClickPos: TPointF;
+  const ItemObject: TListItemDrawable);
+begin
+  inherited;
+ctrl.EscolherCliente(Listview3.Items[ItemIndex].Data['Nome'].AsString,Listview3.Items[ItemIndex].Data['Telefone'].asstring);
+LayServico.Visible:=true;
+end;
+
+procedure TFrmAgendar.ListView4ItemClickEx(const Sender: TObject;
+  ItemIndex: Integer; const LocalClickPos: TPointF;
+  const ItemObject: TListItemDrawable);
+begin
+  inherited;
+ ctrl.EscolherServico(Listview4.Items[ItemIndex].Data['Nome'].AsString);
+  Ctrl.Agendar;
+  LayServico.Visible:=false;
+  {$ifdef Android}
+    Toast('Agendamento concluído com sucesso!',LongToast);
+  {$endif}
+  {$ifdef Windows or IOS}
+    Showmessage('Agendamento concluído com sucesso!');
+  {$endif}
+
+  FrmCalendar.show;
+  Self.Close;
+end;
+
+procedure TFrmAgendar.SolicitarConfirmacao;
+begin
+
+end;
+
+procedure TFrmAgendar.Text15Click(Sender: TObject);
+begin
+  inherited;
+  Ctrl.Agendar;
+  LayServico.Visible:=false;
+  Showmessage('Agendamento concluído com sucesso!');
+  Close;
+end;
+
+procedure TFrmAgendar.Text28Click(Sender: TObject);
+begin
+  inherited;
+Application.CreateForm(TFrmCadClientes, FrmCadClientes);
+FrmCadClientes.show;
+end;
+
+procedure TFrmAgendar.Text2Click(Sender: TObject);
+begin
+  inherited;
+NextTabAction1.ExecuteTarget(self);
+end;
+
+procedure TFrmAgendar.Text30Click(Sender: TObject);
+var
+Controller:IController;
+begin
+  inherited;
+ Controller:=TController.create;
+ Controller.SendWhatsappAll;
+end;
+
+procedure TFrmAgendar.Text31Click(Sender: TObject);
+begin
+  inherited;
+LayoutSolicitacoes.Visible:=False;
+end;
+
+procedure TFrmAgendar.Text33Click(Sender: TObject);
+var
+Controller:IController;
+begin
+  inherited;
+  try
+    Controller:=TController.create;
+    Controller.DesmarcarTodos;
+  finally
+    VerificarHorariosDisponiveis(0);
+  end;
+
+end;
+
+procedure TFrmAgendar.Text34Click(Sender: TObject);
+begin
+  inherited;
+LayoutDesmarcar.Visible:=false;
+end;
+
+procedure TFrmAgendar.Text8Click(Sender: TObject);
+begin
+  inherited;
+ agendar;
+end;
+
+procedure TFrmAgendar.Text9Click(Sender: TObject);
+begin
+  inherited;
+PreviousTabAction1.ExecuteTarget(self);
+end;
+
+
+
+procedure TFrmAgendar.VerificarHorariosDisponiveis(AIndexFuncionario:integer);
+var
+  I: Integer;
+begin
+  try
+    finally
+      for I := 1 to ComponentCount -1 do
+        begin
+          if Components[i] is TLabel then
+             begin
+             //Controller.ConsultarHorarios(Components[i] as TObject,AIndexFuncionario,strtoDate('12/02/2018'));
+             Ctrl.ConsultarHorarios(Components[i] as TObject);
+
+             end;
+        end;
+  end;
+end;
+end.

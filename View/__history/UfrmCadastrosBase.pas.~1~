@@ -1,0 +1,39 @@
+unit UfrmCadastrosBase;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
+  FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
+  UfrmBase, FMX.ListView.Types, FMX.ListView.Appearances,
+  FMX.ListView.Adapters.Base, System.ImageList, FMX.ImgList, FMX.Objects,
+  FMX.ListView, FMX.TabControl, FMX.Ani, FMX.MultiView,
+  FMX.Controls.Presentation, FMX.Layouts;
+
+type
+  TFrmBase1 = class(TFrmBase)
+    LayoTop: TLayout;
+    TabControl1: TTabControl;
+    TabLista: TTabItem;
+    TabEditar: TTabItem;
+    TabVisualizar: TTabItem;
+    ListView1: TListView;
+    LayBtnPlus: TLayout;
+    LayPlus: TLayout;
+    CirclePlus: TCircle;
+    TextPlus: TText;
+    ImageList1: TImageList;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmBase1: TFrmBase1;
+
+implementation
+
+{$R *.fmx}
+
+end.

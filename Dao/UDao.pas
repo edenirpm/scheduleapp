@@ -49,6 +49,7 @@ begin
   FResponse:=TRESTResponse.Create(nil);
   FRestClient:=TRESTClient.Create(nil);
   FRequest.Client:=FRestClient;
+  //FRestClient.BaseURL:='localhost:211/datasnap/rest/Tsm';
   FRestClient.BaseURL:='192.168.15.24:211/datasnap/rest/Tsm';
   FRequest.Response:=FResponse;
 end;
@@ -128,8 +129,9 @@ function TDao.Save: Idao;
  Agendar:TAgendar;
   Task:ITask;
 begin
+
  Task:=Ttask.Create(procedure
-    begin
+   begin
         try
        Agendar:=TAgendar.GetInstance;
 

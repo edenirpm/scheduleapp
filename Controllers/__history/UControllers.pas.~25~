@@ -1,0 +1,130 @@
+unit UControllers;
+
+interface
+uses
+ UControllerCadastros,
+ System.Generics.collections,
+ UnitIefects,
+ model.single,
+ model.servico,
+ Udao.Single,
+ model.funcionario;
+
+Type
+IController = interface
+  ['{66851E17-C07D-42DB-AE0C-90DED2B3BCDB}']
+    procedure EfectTextToUp(AObject:TObject); //tem que ser um ttext
+    procedure CadastrarFuncionario(Cordialidade,Nome,Login,Senha:string);
+    procedure CadastrarServico(NomeServico:string;Valor:Currency);
+    procedure SetPersistir(const Value: IPersist);
+    function GetPersistir: IPersist;
+    property Persistir:IPersist read GetPersistir write SetPersistir;
+end;
+
+TController = class(TInterfacedObject,IController)
+  private
+  FSingle:TSingle;
+    FPersistir: IPersist;
+    procedure SetPersistir(const Value: IPersist);
+    function GetPersistir: IPersist;
+  public
+  procedure CadastrarEmpresa;
+  procedure CadastrarFuncionario(Cordialidade,Nome,Login,Senha:string);
+  procedure CadastrarServico(NomeServico:string;Valor:Currency);
+  procedure EfectTextToUp(AObject:TObject); //tem que ser um ttext
+  property Persistir:IPersist read GetPersistir write SetPersistir;
+  constructor create;
+
+
+end;
+
+implementation
+
+uses
+  FMX.Dialogs;
+
+{ TController }
+
+procedure TController.CadastrarEmpresa;
+var
+ Empresa:ICadastros;
+begin
+   try
+   Empresa:=TControllerCadastros.Create;
+   Empresa.CadastrarEmpresa('webrz','Jacuipe','147','Concordia','Belo Horizonte','MG','BR','031','991770674','edenirpm','ddlcaddlca');
+   Except
+
+   end;
+end;
+
+procedure TController.CadastrarFuncionario(Cordialidade,Nome,Login,Senha:string);
+var
+Funcionario:TFuncionario;
+Funcionarios:TObjectList<TFuncionario>;
+begin
+   try
+    Funcionario:=TFuncionario.Create;
+    Funcionario.Cordialidade:=Cordialidade;
+    Funcionario.Nome:=Nome;
+    Funcionario.Login:=Login;
+    Funcionario.Senha:=Senha;
+    Funcionarios:=TSingle.GetInstance.Funcionarios;
+    Funcionarios.Add(Funcionario);
+   finally
+   //  Showmessage('Funcionario Cadastrado com Sucesso!');
+   end;
+end;
+
+procedure TController.CadastrarServico(NomeServico:string;Valor:Currency);
+var
+Servico:Tservico;
+Servicos:TObjectList<TServico>;
+begin
+  try
+   Servico:=TServico.create;
+   Servico.Nome:=NomeServico;
+   Servico.Valor:=Valor;
+
+   Servicos:=TSingle.GetInstance.Servicos;
+   Servicos.add(Servico);
+  finally
+  // Showmessage('Servico Cadastrado com Sucesso!');
+  end;
+end;
+
+
+
+
+constructor TController.create;
+begin
+ FPersistir:=TPersist.Create;
+end;
+
+procedure TController.EfectTextToUp(AObject: TObject);
+var
+ Efeito:TEfectLabelsTextUP;
+begin
+  try
+   Efeito:=TEfectLabelsTextUP.Create;
+   Efeito.EfectTextEdit(AObject);
+  finally
+   Efeito.DisposeOf;
+  end;
+end;
+
+
+
+
+
+
+function TController.GetPersistir: IPersist;
+begin
+
+end;
+
+procedure TController.SetPersistir(const Value: IPersist);
+begin
+  FPersistir := Value;
+end;
+
+end.

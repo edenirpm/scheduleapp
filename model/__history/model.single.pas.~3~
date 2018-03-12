@@ -1,0 +1,72 @@
+unit model.single;
+
+interface
+uses
+System.Generics.collections,
+model.funcionario,
+model.empresa,
+model.servico;
+Type
+ TSingle = class
+  private
+    FFuncionarios: TObjectList<TFuncionario>;
+    FServicos: TObjectList<TServico>;
+    FEmpresa: TEmpresa;
+    procedure SetFuncionarios(const Value: TObjectList<TFuncionario>);
+    procedure SetServicos(const Value: TObjectList<TServico>);
+    procedure SetEmpresa(const Value: TEmpresa);
+  published
+   property Funcionarios:TObjectList<TFuncionario> read FFuncionarios write SetFuncionarios;
+   property Servicos:TObjectList<TServico> read FServicos write SetServicos;
+   property Empresa:TEmpresa read FEmpresa write SetEmpresa;
+   constructor create;
+   destructor destroy;override;
+  public
+    class function GetInstance: TSingle;
+  strict private
+    class var FInstance: TSingle;
+  end;
+
+implementation
+
+{ TSingle }
+
+constructor TSingle.create;
+begin
+FFuncionarios:=TObjectList<TFuncionario>.create;
+FServicos:=TObjectList<TServico>.create;
+Fempresa:=TEmpresa.create;
+end;
+
+destructor TSingle.destroy;
+begin
+FFuncionarios.DisposeOf;
+FServicos.DisposeOf;
+FEmpresa.Disposeof;
+end;
+
+procedure TSingle.SetEmpresa(const Value: TEmpresa);
+begin
+  FEmpresa := Value;
+end;
+
+procedure TSingle.SetFuncionarios(const Value: TObjectList<TFuncionario>);
+begin
+  FFuncionarios := Value;
+end;
+
+procedure TSingle.SetServicos(const Value: TObjectList<TServico>);
+begin
+  FServicos := Value;
+end;
+
+class function TSingle.GetInstance: TSingle;
+begin
+  If FInstance = nil Then
+  begin
+    FInstance := model.single.TSingle.create();
+  end;
+  Result := FInstance;
+end;
+
+end.

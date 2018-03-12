@@ -1,0 +1,46 @@
+unit model.funcionario;
+
+interface
+type
+TFuncionario = class
+  private
+    FSenha: string;
+    FCordialidade: string;
+    FLogin: string;
+    FNome: string;
+    procedure SetCordialidade(const Value: string);
+    procedure SetLogin(const Value: string);
+    procedure SetNome(const Value: string);
+    procedure SetSenha(const Value: string);
+  public
+  property Cordialidade:string read FCordialidade write SetCordialidade;
+  property Nome:string read FNome write SetNome;
+  property Login:string read FLogin write SetLogin;
+  property Senha:string read FSenha write SetSenha;
+end;
+
+implementation
+
+{ TFuncionario }
+
+procedure TFuncionario.SetCordialidade(const Value: string);
+begin
+  FCordialidade := Value;
+end;
+
+procedure TFuncionario.SetLogin(const Value: string);
+begin
+  FLogin := Value;
+end;
+
+procedure TFuncionario.SetNome(const Value: string);
+begin
+  FNome := Value;
+end;
+
+procedure TFuncionario.SetSenha(const Value: string);
+begin
+  FSenha := Value;
+end;
+
+end.

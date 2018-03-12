@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/02/06 22:52:06.000.617,=C:\Users\MAC\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>2018/02/07 00:02:34.000.534,C:\Users\MAC\Desktop\AgendaMais\View\UfrmLogin.fmx=C:\Users\MAC\Documents\Embarcadero\Studio\Projects\Unit3.fmx</Transaction>
+    <Transaction>2018/02/07 00:02:34.000.533,C:\Users\MAC\Desktop\AgendaMais\View\UfrmLogin.pas=C:\Users\MAC\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>2018/02/07 00:02:43.000.195,C:\Users\MAC\Desktop\AgendaMais\AgendaPlus.dproj=C:\Users\MAC\Documents\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
+    <Transaction>2018/02/07 00:04:39.000.849,=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/07 04:35:01.000.485,C:\Users\MAC\Desktop\AgendaMais\View\UfrmBase.fmx=C:\Users\MAC\Desktop\AgendaMais\Unit1.fmx</Transaction>
+    <Transaction>2018/02/07 04:35:01.000.484,C:\Users\MAC\Desktop\AgendaMais\View\UfrmBase.pas=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/07 04:49:25.000.163,=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/07 04:50:37.000.012,=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/07 04:51:28.000.056,C:\Users\MAC\Desktop\AgendaMais\View\UfrmCadastro.fmx=C:\Users\MAC\Desktop\AgendaMais\Unit1.fmx</Transaction>
+    <Transaction>2018/02/07 04:51:28.000.056,C:\Users\MAC\Desktop\AgendaMais\View\UfrmCadastro.pas=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/07 16:57:01.000.481,=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/07 16:57:14.000.589,=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/07 17:04:40.000.910,=C:\Users\MAC\Desktop\AgendaMais\Unit2.pas</Transaction>
+    <Transaction>2018/02/07 17:09:41.000.840,C:\Users\MAC\Desktop\AgendaMais\Interfaces\UnitIefects.pas=C:\Users\MAC\Desktop\AgendaMais\Unit2.pas</Transaction>
+    <Transaction>2018/02/07 17:12:40.000.075,C:\Users\MAC\Desktop\AgendaMais\View\UfrmCadFuncionario.pas=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/07 17:12:40.000.075,C:\Users\MAC\Desktop\AgendaMais\View\UfrmCadFuncionario.fmx=C:\Users\MAC\Desktop\AgendaMais\Unit1.fmx</Transaction>
+    <Transaction>2018/02/07 17:13:08.000.007,=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/07 17:14:13.000.286,=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/07 17:19:00.000.401,=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/07 17:22:24.000.347,C:\Users\MAC\Desktop\AgendaMais\Controllers\UControllerEfects.pas=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/07 17:38:05.000.641,=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/07 17:44:25.000.667,=C:\Users\MAC\Desktop\AgendaMais\Unit2.pas</Transaction>
+    <Transaction>2018/02/07 17:45:27.000.656,C:\Users\MAC\Desktop\AgendaMais\model\model.funcionario.pas=C:\Users\MAC\Desktop\AgendaMais\Unit2.pas</Transaction>
+    <Transaction>2018/02/07 17:58:27.000.015,=C:\Users\MAC\Desktop\AgendaMais\Unit2.pas</Transaction>
+    <Transaction>2018/02/07 17:59:01.000.856,C:\Users\MAC\Desktop\AgendaMais\model\model.servico.pas=C:\Users\MAC\Desktop\AgendaMais\Unit2.pas</Transaction>
+    <Transaction>2018/02/07 18:03:54.000.203,C:\Users\MAC\Desktop\AgendaMais\Controllers\UControllerCadastros.pas=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/07 18:06:32.000.346,=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/07 18:09:16.000.567,C:\Users\MAC\Desktop\AgendaMais\Controllers\UControllers.pas=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/07 18:16:54.000.037,C:\Users\MAC\Desktop\AgendaMais\Controllers\UControllerEfects.pas=</Transaction>
+    <Transaction>2018/02/07 18:27:11.000.122,=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/07 18:29:20.000.813,=C:\Users\MAC\Desktop\AgendaMais\Unit2.pas</Transaction>
+    <Transaction>2018/02/07 18:30:31.000.979,=C:\Users\MAC\Desktop\AgendaMais\Unit3.pas</Transaction>
+    <Transaction>2018/02/07 18:31:27.000.016,C:\Users\MAC\Desktop\AgendaMais\Unit3.pas=C:\Users\MAC\Desktop\AgendaMais\model\model.endereco.pas</Transaction>
+    <Transaction>2018/02/07 18:32:33.000.938,=C:\Users\MAC\Desktop\AgendaMais\Unit3.pas</Transaction>
+    <Transaction>2018/02/07 18:33:04.000.755,C:\Users\MAC\Desktop\AgendaMais\Unit3.pas=C:\Users\MAC\Desktop\AgendaMais\model\model.telefone.pas</Transaction>
+    <Transaction>2018/02/07 18:34:04.000.852,C:\Users\MAC\Desktop\AgendaMais\Unit2.pas=C:\Users\MAC\Desktop\AgendaMais\model\model.empresa.pas</Transaction>
+    <Transaction>2018/02/07 18:36:19.000.994,C:\Users\MAC\Desktop\AgendaMais\Unit1.pas=C:\Users\MAC\Desktop\AgendaMais\model\model.singletons.pas</Transaction>
+    <Transaction>2018/02/07 18:37:02.000.093,=C:\Users\MAC\Desktop\AgendaMais\ModelSupport_AgendaPlus\default.txaPackage</Transaction>
+    <Transaction>2018/02/07 18:37:06.000.342,=C:\Users\MAC\Desktop\AgendaMais\ModelSupport_AgendaPlus\default.txvpck</Transaction>
+    <Transaction>2018/02/07 18:37:08.000.852,=C:\Users\MAC\Desktop\AgendaMais\ModelSupport_AgendaPlus\AgendaPlus\default.txvpck</Transaction>
+    <Transaction>2018/02/07 18:37:08.000.720,=C:\Users\MAC\Desktop\AgendaMais\ModelSupport_AgendaPlus\model\default.txvpck</Transaction>
+    <Transaction>2018/02/07 18:37:11.000.308,=C:\Users\MAC\Desktop\AgendaMais\ModelSupport_AgendaPlus\model\singletons\default.txvpck</Transaction>
+    <Transaction>2018/02/07 18:37:12.000.103,=C:\Users\MAC\Desktop\AgendaMais\ModelSupport_AgendaPlus\model\singletons\default.txaPackage</Transaction>
+    <Transaction>2018/02/07 18:37:32.000.252,=C:\Users\MAC\Desktop\AgendaMais\ModelSupport_AgendaPlus\model\default.txaPackage</Transaction>
+    <Transaction>2018/02/07 18:57:42.000.122,C:\Users\MAC\Desktop\AgendaMais\model\model.singletons.pas=</Transaction>
+    <Transaction>2018/02/07 18:59:17.000.477,=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/07 19:03:45.000.320,C:\Users\MAC\Desktop\AgendaMais\model\model.singletons.pas=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/07 19:08:48.000.381,=C:\Users\MAC\Desktop\AgendaMais\ModelSupport_AgendaPlus\UfrmCadastro\default.txvpck</Transaction>
+    <Transaction>2018/02/07 19:28:50.000.774,C:\Users\MAC\Desktop\AgendaMais\model\model.singletons.pas=</Transaction>
+    <Transaction>2018/02/07 19:28:51.000.150,=C:\Users\MAC\Desktop\AgendaMais\ModelSupport_AgendaPlus\UfrmCadFuncionario\default.txvpck</Transaction>
+    <Transaction>2018/02/07 20:02:06.000.295,=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/07 20:02:46.000.746,=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/07 20:06:19.000.883,C:\Users\MAC\Desktop\AgendaMais\Unit1.fmx=C:\Users\MAC\Desktop\AgendaMais\View\UfrmCadServico.fmx</Transaction>
+    <Transaction>2018/02/07 20:06:19.000.883,C:\Users\MAC\Desktop\AgendaMais\Unit1.pas=C:\Users\MAC\Desktop\AgendaMais\View\UfrmCadServico.pas</Transaction>
+    <Transaction>2018/02/07 23:11:17.000.310,=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/07 23:14:28.000.757,C:\Users\MAC\Desktop\AgendaMais\Unit1.pas=C:\Users\MAC\Desktop\AgendaMais\model\model.singletons.pas</Transaction>
+    <Transaction>2018/02/07 23:33:13.000.674,C:\Users\MAC\Desktop\AgendaMais\model\model.singletons.pas=</Transaction>
+    <Transaction>2018/02/07 23:43:35.000.964,=C:\Users\MAC\Desktop\AgendaMais\ModelSupport_AgendaPlus\UfrmLogin\default.txvpck</Transaction>
+    <Transaction>2018/02/07 23:43:36.000.336,=C:\Users\MAC\Desktop\AgendaMais\ModelSupport_AgendaPlus\UControllers\default.txvpck</Transaction>
+    <Transaction>2018/02/08 00:16:23.000.534,=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/08 00:20:07.000.705,C:\Users\MAC\Desktop\AgendaMais\model\model.single.pas=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/08 00:20:53.000.137,=C:\Users\MAC\Desktop\AgendaMais\ModelSupport_AgendaPlus\model\single\default.txvpck</Transaction>
+    <Transaction>2018/02/08 00:20:53.000.362,=C:\Users\MAC\Desktop\AgendaMais\ModelSupport_AgendaPlus\model\single\default.txaPackage</Transaction>
+    <Transaction>2018/02/08 07:28:51.000.348,=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/08 07:33:38.000.926,C:\Users\MAC\Desktop\AgendaMais\model\mode.agendamento.pas=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/08 07:40:20.000.959,=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/08 07:44:22.000.896,C:\Users\MAC\Desktop\AgendaMais\Dao\UDao.Single.pas=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/09 05:04:44.000.735,=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/09 05:25:28.000.200,C:\Users\MAC\Desktop\AgendaMais\View\UfrmCalendar.pas=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/09 05:25:28.000.201,C:\Users\MAC\Desktop\AgendaMais\View\UfrmCalendar.fmx=C:\Users\MAC\Desktop\AgendaMais\Unit1.fmx</Transaction>
+    <Transaction>2018/02/09 13:32:57.000.887,=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/09 13:54:45.000.141,C:\Users\MAC\Desktop\AgendaMais\Unit1.pas=C:\Users\MAC\Desktop\AgendaMais\View\UfrmAgendaDiaFuncionario.pas</Transaction>
+    <Transaction>2018/02/09 13:54:45.000.141,C:\Users\MAC\Desktop\AgendaMais\Unit1.fmx=C:\Users\MAC\Desktop\AgendaMais\View\UfrmAgendaDiaFuncionario.fmx</Transaction>
+    <Transaction>2018/02/09 17:03:03.000.590,=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/09 18:44:26.000.519,=C:\Users\MAC\Desktop\AgendaMais\Unit1.pas</Transaction>
+    <Transaction>2018/02/09 19:03:12.000.355,C:\Users\MAC\Desktop\AgendaMais\Unit1.fmx=C:\Users\MAC\Desktop\AgendaMais\View\UfrmAgendar.fmx</Transaction>
+    <Transaction>2018/02/09 19:03:12.000.354,C:\Users\MAC\Desktop\AgendaMais\Unit1.pas=C:\Users\MAC\Desktop\AgendaMais\View\UfrmAgendar.pas</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5" Android="0123456789ABCDEF"/>
+	</ActiveMobileDevice>
+</BorlandProject>

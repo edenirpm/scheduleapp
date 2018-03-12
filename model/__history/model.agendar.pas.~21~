@@ -1,0 +1,149 @@
+unit model.agendar;
+
+interface
+uses
+ System.generics.collections,
+ model.funcionario,
+ model.empresa,
+ model.cliente,
+ model.servico;
+
+ Type
+ TAgendar= class
+  private
+    FDate:TDate;
+    FFuncionarios: TObjectList<TFuncionario>;
+    FDatas: Tlist<TDate>;
+    FDataSelecionada: Tdate;
+    FIndexFuncionario: integer;
+    FClientes: TObjectList<TCliente>;
+    FServicos: TObjectList<TServico>;
+    FEmpresa: TEmpresa;
+    procedure SetFuncionarios(const Value: TObjectList<TFuncionario>);
+    procedure SetData(const Value: TDate);
+    procedure SetDatas(const Value: TList<TDate>);
+    procedure SetDataSelecionada(const Value: Tdate);
+    procedure SetIndexFuncionario(const Value: integer);
+    procedure SetClientes(const Value: TObjectList<TCliente>);
+    procedure SetServicos(const Value: TObjectList<TServico>);
+    procedure SetEmpresa(const Value: TEmpresa);
+  published
+   property Datas:TList<TDate> read FDatas write SetDatas;
+   property Funcionarios:TObjectList<TFuncionario> read FFuncionarios write SetFuncionarios;
+   property DataSelecionada:Tdate read FDataSelecionada write SetDataSelecionada;
+   property IndexFuncionario:integer read FIndexFuncionario write SetIndexFuncionario;
+   property Clientes:TObjectList<TCliente> read FClientes write SetClientes;
+   property Servicos:TObjectList<TServico> read FServicos write SetServicos;
+   property Empresa:TEmpresa read FEmpresa write SetEmpresa;
+   destructor destroy;override;
+   procedure AddData(ADate:TDate);
+  public
+    class function GetInstance: TAgendar;
+    class procedure ReleaseInstance;
+
+ // strict private
+    constructor create;
+    class var FInstance: TAgendar;
+  end;
+
+implementation
+
+uses
+  System.SysUtils, FMX.Dialogs;
+
+{ TAgendar }
+
+procedure TAgendar.AddData(ADate: TDate);
+var
+  I: Integer;
+begin
+   if FDatas.Contains(ADate)=true then
+   begin
+    Showmessage('Esta data ja tem');
+   end else
+        begin
+          FDatas.Add(Adate);
+        end;
+  FDataSelecionada:=ADate;
+end;
+
+constructor TAgendar.create;
+begin
+FFuncionarios:=TObjectList<TFuncionario>.create;
+FDatas:=TList<TDate>.create;
+FClientes:=TObjectList<TCliente>.create;
+FServicos:=TObjectList<TServico>.create;
+FEmpresa:=TEmpresa.create;
+end;
+
+destructor TAgendar.destroy;
+begin
+FFuncionarios.free;
+FDatas.Clear;
+FDatas.Free;
+FClientes.Free;
+FServicos.Free;
+FEmpresa.Free;
+  inherited;
+end;
+
+
+
+procedure TAgendar.SetClientes(const Value: TObjectList<TCliente>);
+begin
+  FClientes := Value;
+end;
+
+procedure TAgendar.SetData(const Value: TDate);
+begin
+ FDate:=Value;
+end;
+
+procedure TAgendar.SetDatas(const Value: TList<TDate>);
+begin
+  FDatas := Value;
+end;
+
+procedure TAgendar.SetDataSelecionada(const Value: Tdate);
+begin
+ FDataSelecionada:=Value;
+end;
+
+procedure TAgendar.SetEmpresa(const Value: TEmpresa);
+begin
+  FEmpresa := Value;
+end;
+
+procedure TAgendar.SetFuncionarios(const Value: TObjectList<TFuncionario>);
+begin
+  FFuncionarios := Value;
+end;
+
+procedure TAgendar.SetIndexFuncionario(const Value: integer);
+begin
+  FIndexFuncionario := Value;
+end;
+
+procedure TAgendar.SetServicos(const Value: TObjectList<TServico>);
+begin
+  FServicos := Value;
+end;
+
+class function TAgendar.GetInstance: TAgendar;
+begin
+  If FInstance = nil Then
+  begin
+    FInstance := model.agendar.TAgendar.create();
+  end;
+  Result := FInstance;
+end;
+
+class procedure TAgendar.ReleaseInstance;
+begin
+  if Assigned(Self.FInstance) then
+    Self.FInstance.Free;
+end;
+initialization
+finalization
+TAgendar.ReleaseInstance;
+end.

@@ -1,0 +1,12 @@
+unit model.telefone;
+
+interface
+Type
+TTelefone = class
+  property DDD:string;
+  property Celular:string;
+end;
+
+implementation
+
+end.

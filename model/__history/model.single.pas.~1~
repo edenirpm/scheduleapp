@@ -1,0 +1,48 @@
+unit model.single;
+
+interface
+uses
+System.Generics.collections,
+model.funcionario,
+model.servico;
+Type
+ TSingle = class
+  private
+    FFuncionarios: TObjectList<TFuncionario>;
+    FServicos: TObjectList<TServico>;
+    procedure SetFuncionarios(const Value: TObjectList<TFuncionario>);
+    procedure SetServicos(const Value: TObjectList<TServico>);
+  published
+   property Funcionarios:TObjectList<TFuncionario> read FFuncionarios write SetFuncionarios;
+   property Servicos:TObjectList<TServico> read FServicos write SetServicos;
+   constructor create;
+   destructor destroy;override;
+ end;
+
+implementation
+
+{ TSingle }
+
+constructor TSingle.create;
+begin
+FFuncionarios:=TObjectList<TFuncionario>.create;
+FServicos:=TObjectList<TServico>.create;
+end;
+
+destructor TSingle.destroy;
+begin
+FFuncionarios.DisposeOf;
+FServicos.DisposeOf;
+end;
+
+procedure TSingle.SetFuncionarios(const Value: TObjectList<TFuncionario>);
+begin
+  FFuncionarios := Value;
+end;
+
+procedure TSingle.SetServicos(const Value: TObjectList<TServico>);
+begin
+  FServicos := Value;
+end;
+
+end.

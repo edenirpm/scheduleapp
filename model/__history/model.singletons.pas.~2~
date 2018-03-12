@@ -1,0 +1,83 @@
+unit model.singletons;
+
+interface
+uses
+System.generics.collections,model.funcionario,model.empresa,model.servico;
+type
+Tsingletons = class
+  private
+    FFuncionario: TFuncionario;
+    FServico: TServico;
+    FEmpresa: TEmpresa;
+    FFuncionarios: TObjectList<TFuncionario>;
+    FServicos: TOBjectList<TServico>;
+    procedure SetEmpresa(const Value: TEmpresa);
+    procedure SetFuncionario(const Value: TFuncionario);
+    procedure SetFuncionarios(const Value: TObjectList<TFuncionario>);
+    procedure SetServico(const Value: TServico);
+    procedure SetServicos(const Value: TOBjectList<TServico>);
+  published
+  property Funcionarios:TObjectList<TFuncionario> read FFuncionarios write SetFuncionarios;
+  property Servicos:TOBjectList<TServico> read FServicos write SetServicos;
+  property Empresa:TEmpresa read FEmpresa write SetEmpresa;
+  property Funcionario:TFuncionario read FFuncionario write SetFuncionario;
+  property Servico:TServico read FServico write SetServico;
+  constructor create;
+  destructor destroy;
+  public
+    class function GetInstance: Tsingletons;
+  strict private
+    class var FInstance: Tsingletons;
+  end;
+
+implementation
+
+{ Tsingletons }
+
+constructor Tsingletons.create;
+begin
+FFuncionarios:=TObjectList<TFuncionario>.create;
+FServicos:=TObjectList<TServico>.create;
+end;
+
+destructor Tsingletons.destroy;
+begin
+FFuncionarios.disposeof;
+Fservicos.Disposeof;
+end;
+
+procedure Tsingletons.SetEmpresa(const Value: TEmpresa);
+begin
+  FEmpresa := Value;
+end;
+
+procedure Tsingletons.SetFuncionario(const Value: TFuncionario);
+begin
+  FFuncionario := Value;
+end;
+
+procedure Tsingletons.SetFuncionarios(const Value: TObjectList<TFuncionario>);
+begin
+  FFuncionarios := Value;
+end;
+
+procedure Tsingletons.SetServico(const Value: TServico);
+begin
+  FServico := Value;
+end;
+
+procedure Tsingletons.SetServicos(const Value: TOBjectList<TServico>);
+begin
+  FServicos := Value;
+end;
+
+class function Tsingletons.GetInstance: Tsingletons;
+begin
+  If FInstance = nil Then
+  begin
+    FInstance := model.singletons.Tsingletons.create();
+  end;
+  Result := FInstance;
+end;
+
+end.

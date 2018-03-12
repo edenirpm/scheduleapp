@@ -1,0 +1,201 @@
+inherited FrmCadFuncionario: TFrmCadFuncionario
+  Caption = 'FrmBase1'
+  OnClose = FormClose
+  DesignerMasterStyle = 3
+  inherited LayTudo: TLayout
+    inherited BGTopo: TRectangle
+      inherited LayTop: TLayout
+        inherited LayLogo: TLayout
+          inherited Text1: TText
+            Text = 'Cadastro de Funcion'#225'rio'
+          end
+        end
+      end
+    end
+    inherited LayContent: TLayout
+      object Layout1: TLayout [1]
+        Align = Client
+        Size.Width = 320.000000000000000000
+        Size.Height = 430.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        object RoundRect1: TRoundRect
+          Align = Top
+          Fill.Color = claWhite
+          Margins.Left = 40.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Margins.Right = 40.000000000000000000
+          Position.X = 40.000000000000000000
+          Position.Y = 199.000000000000000000
+          Size.Width = 240.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = xFF795548
+          Stroke.Thickness = 3.000000000000000000
+          object Text2: TText
+            Align = Client
+            Size.Width = 240.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            Text = 'Cadastrar'
+            TextSettings.Font.Family = 'Calibri'
+            TextSettings.Font.Size = 26.000000000000000000
+            TextSettings.FontColor = xFF795548
+            OnClick = Text2Click
+          end
+        end
+        object Layout2: TLayout
+          Align = Top
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 3.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 3.000000000000000000
+          Position.X = 10.000000000000000000
+          Position.Y = 146.000000000000000000
+          Size.Width = 300.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          object Layout3: TLayout
+            Align = Client
+            Size.Width = 300.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            object Edit1: TEdit
+              Touch.InteractiveGestures = [LongTap, DoubleTap]
+              Align = Client
+              TabOrder = 0
+              KeyboardType = EmailAddress
+              Password = True
+              Size.Width = 300.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              StyledSettings = [Family, Style, FontColor]
+              object Text3: TText
+                Align = Client
+                Size.Width = 300.000000000000000000
+                Size.Height = 32.000000000000000000
+                Size.PlatformDefault = False
+                Text = 'Senha'
+                TextSettings.Font.Size = 11.000000000000000000
+                TextSettings.HorzAlign = Leading
+                OnClick = Text5Click
+              end
+            end
+          end
+        end
+        object Layout4: TLayout
+          Align = Top
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 3.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 3.000000000000000000
+          Position.X = 10.000000000000000000
+          Position.Y = 100.000000000000000000
+          Size.Width = 300.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 3
+          object Layout5: TLayout
+            Align = Client
+            Size.Width = 300.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            object Edit2: TEdit
+              Touch.InteractiveGestures = [LongTap, DoubleTap]
+              Align = Client
+              TabOrder = 0
+              KeyboardType = EmailAddress
+              Size.Width = 300.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              StyledSettings = [Family, Style, FontColor]
+              object Text4: TText
+                Align = Client
+                Size.Width = 300.000000000000000000
+                Size.Height = 32.000000000000000000
+                Size.PlatformDefault = False
+                Text = 'Login'
+                TextSettings.Font.Size = 11.000000000000000000
+                TextSettings.HorzAlign = Leading
+                OnClick = Text5Click
+              end
+            end
+          end
+        end
+        object Layout6: TLayout
+          Align = Top
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 3.000000000000000000
+          Position.X = 10.000000000000000000
+          Position.Y = 54.000000000000000000
+          Size.Width = 300.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object Layout7: TLayout
+            Align = Client
+            Size.Width = 300.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            object Edit3: TEdit
+              Touch.InteractiveGestures = [LongTap, DoubleTap]
+              Align = Client
+              TabOrder = 0
+              KeyboardType = EmailAddress
+              Size.Width = 300.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              StyledSettings = [Family, Style, FontColor]
+              object Text5: TText
+                Align = Client
+                Size.Width = 300.000000000000000000
+                Size.Height = 32.000000000000000000
+                Size.PlatformDefault = False
+                Text = 'Nome do Funcion'#225'rio'
+                TextSettings.Font.Size = 11.000000000000000000
+                TextSettings.HorzAlign = Leading
+                OnClick = Text5Click
+              end
+            end
+          end
+        end
+        object Layout8: TLayout
+          Align = Top
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 3.000000000000000000
+          Position.X = 10.000000000000000000
+          Position.Y = 10.000000000000000000
+          Size.Width = 300.000000000000000000
+          Size.Height = 31.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 4
+          object ComboBox1: TComboBox
+            Align = Client
+            Items.Strings = (
+              'Sr.'
+              'Sra.'
+              'Dr.'
+              'Dra.')
+            ItemIndex = 0
+            Size.Width = 300.000000000000000000
+            Size.Height = 32.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+          end
+        end
+      end
+      inherited MenuMultiview: TMultiView
+        Size.Width = 250.000000000000000000
+        Size.Height = 441.000000000000000000
+      end
+    end
+  end
+end

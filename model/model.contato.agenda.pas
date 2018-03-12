@@ -20,6 +20,9 @@ end;
 
 implementation
 
+uses
+  System.SysUtils, FMX.Dialogs;
+
 { TContatoAgenda }
 
 function TContatoAgenda.CarregarContatos: IContatoAgenda;
@@ -42,20 +45,14 @@ begin
    Addresbook1.AllContacts(Addresbook1.DefaultSource, Contacts);
         for I := 0 to Contacts.Count - 1 do
           begin
-           begin
+           try
             Cliente:=TCliente.create;
             Cliente.Nome:=Contacts.Items[i].DisplayName;
             Cliente.Telefone.Celular:=Contacts.Items[i].Phones[0].Number;
-            if agendar.Clientes.Contains(Cliente) = true then
-               begin
-                 cliente.Free;
-               end else
-                    begin
-                      Agendar.Clientes.Add(Cliente);
-                    end;
+           finally
+            Agendar.Clientes.Add(Cliente);
            end;
           end;
-
   finally
    Contacts.Free;
    Addresbook1.Free;

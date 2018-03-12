@@ -1,0 +1,26 @@
+unit UWorks;
+
+interface
+
+uses
+  System.SysUtils;
+Type
+IWork = interface
+['{13160CF6-8635-4EEC-971F-B431DA5AAAE4}']
+ procedure Execute;
+end;
+
+TWork = class(TInterfacedObject,IWork)
+ procedure Execute;
+end;
+
+implementation
+
+{ TWork }
+
+procedure TWork.Execute;
+begin
+Sleep(3000);
+end;
+
+end.

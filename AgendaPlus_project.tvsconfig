@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<TgConfig Version="3" SubLevelDisabled="False">
+  <Option Name="namespaceFolder.model.singletons" Type="System.String" Value="model" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.model.single" Type="System.String" Value="model" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.Controller.FrmAgendar.Singleton" Type="System.String" Value="Controllers" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.model.agendar" Type="System.String" Value="model" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.model.listAgendar" Type="System.String" Value="model" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.UfrmAgendaDiaFuncionario" Type="System.String" Value="UfrmAgendaDiaFuncionario" Category="General" IsBrowsable="False" />
+</TgConfig>

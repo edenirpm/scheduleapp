@@ -1,0 +1,16 @@
+object sm: Tsm
+  OldCreateOrder = False
+  Height = 150
+  Width = 215
+  object Conexao: TFDConnection
+    Params.Strings = (
+      'Server=192.168.15.24'
+      'DriverID=Mongo')
+    Left = 48
+    Top = 40
+  end
+  object FDPhysMongoDriverLink1: TFDPhysMongoDriverLink
+    Left = 128
+    Top = 72
+  end
+end

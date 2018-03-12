@@ -1,0 +1,57 @@
+unit model.singletons;
+
+interface
+uses
+System.Generics.collections ,model.Empresa,Model.Servico,Model.Funcionario;
+
+Type
+TSingletons = class
+  private
+    FEmpresa: TEmpresa;
+    FFuncionarios: TObjectList<TFuncionario>;
+    FServicos: TObjectList<TServico>;
+    procedure SetEmpresa(const Value: TEmpresa);
+    procedure SetFuncionarios(const Value: TObjectList<TFuncionario>);
+    procedure SetServicos(const Value: TObjectList<TServico>);
+  published
+  property Funcionarios:TObjectList<TFuncionario> read FFuncionarios write SetFuncionarios;
+  property Servicos:TObjectList<TServico> read FServicos write SetServicos;
+  property Empresa:TEmpresa read FEmpresa write SetEmpresa;
+  constructor create;
+  Destructor Destroyl;
+end;
+
+implementation
+
+{ TSingletons }
+
+constructor TSingletons.create;
+begin
+FEmpresa:=TEmpresa.create;
+FFuncionarios:=TObjectList<TFuncionario>.create;
+FServicos:=TObjectList<TServico>.create;
+end;
+
+destructor TSingletons.Destroyl;
+begin
+FEmpresa.Disposeof;
+FFuncionarios.DisposeOf;
+FServicos.DisposeOf
+end;
+
+procedure TSingletons.SetEmpresa(const Value: TEmpresa);
+begin
+  FEmpresa := Value;
+end;
+
+procedure TSingletons.SetFuncionarios(const Value: TObjectList<TFuncionario>);
+begin
+  FFuncionarios := Value;
+end;
+
+procedure TSingletons.SetServicos(const Value: TObjectList<TServico>);
+begin
+  FServicos := Value;
+end;
+
+end.

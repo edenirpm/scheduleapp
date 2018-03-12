@@ -1,0 +1,156 @@
+inherited FrmCadClientes: TFrmCadClientes
+  Caption = 'FrmBase1'
+  DesignerMasterStyle = 3
+  inherited LayTudo: TLayout
+    inherited LayContent: TLayout
+      object LayTopTitle: TLayout [1]
+        Align = Top
+        Size.Width = 320.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        object Rectangle1: TRectangle
+          Align = Client
+          Fill.Color = xFFF08603
+          Size.Width = 320.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Kind = None
+        end
+        object Text2: TText
+          Align = Client
+          Size.Width = 320.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Cadastro de Clientes'
+          TextSettings.Font.Size = 18.000000000000000000
+          TextSettings.FontColor = claWhite
+        end
+      end
+      object Layout1: TLayout [2]
+        Align = Top
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 20.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 70.000000000000000000
+        Size.Width = 300.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        object Edit1: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = Client
+          TabOrder = 0
+          Size.Width = 300.000000000000000000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+          object Text3: TText
+            Align = Client
+            Size.Width = 300.000000000000000000
+            Size.Height = 32.000000000000000000
+            Size.PlatformDefault = False
+            Text = 'Nome'
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.HorzAlign = Leading
+          end
+        end
+      end
+      object Layout2: TLayout [3]
+        Align = Top
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 115.000000000000000000
+        Size.Width = 300.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 4
+        object Layout3: TLayout
+          Align = Left
+          Size.Width = 113.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object Edit2: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Client
+            TabOrder = 0
+            Size.Width = 113.000000000000000000
+            Size.Height = 32.000000000000000000
+            Size.PlatformDefault = False
+            object Text4: TText
+              Align = Client
+              Size.Width = 113.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              Text = 'DDD'
+              TextSettings.Font.Size = 16.000000000000000000
+              TextSettings.HorzAlign = Leading
+            end
+          end
+        end
+        object Layout4: TLayout
+          Align = Client
+          Size.Width = 187.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          object Edit3: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Client
+            TabOrder = 0
+            Size.Width = 187.000000000000000000
+            Size.Height = 32.000000000000000000
+            Size.PlatformDefault = False
+            object Text5: TText
+              Align = Client
+              Size.Width = 187.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              Text = 'Telefone'
+              TextSettings.Font.Size = 16.000000000000000000
+              TextSettings.HorzAlign = Leading
+            end
+          end
+        end
+      end
+      object Layout5: TLayout [4]
+        Align = Top
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 165.000000000000000000
+        Size.Width = 300.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 5
+        object RoundRect1: TRoundRect
+          Align = Client
+          Fill.Kind = None
+          Size.Width = 300.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = xFF3C2802
+          Stroke.Thickness = 2.000000000000000000
+          object Text6: TText
+            Align = Client
+            Size.Width = 300.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            Text = 'CADASTRAR'
+            TextSettings.Font.Size = 26.000000000000000000
+            TextSettings.FontColor = claSienna
+          end
+        end
+      end
+      inherited MenuMultiview: TMultiView
+        Size.Width = 250.000000000000000000
+        Size.Height = 441.000000000000000000
+        Visible = False
+      end
+    end
+  end
+end

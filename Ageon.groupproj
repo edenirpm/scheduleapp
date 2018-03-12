@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{A06C546B-6FB4-4817-A481-49C2E19E525F}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="AgendaPlus.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Servidor\Servidor.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="AgendaPlus">
+        <MSBuild Projects="AgendaPlus.dproj"/>
+    </Target>
+    <Target Name="AgendaPlus:Clean">
+        <MSBuild Projects="AgendaPlus.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AgendaPlus:Make">
+        <MSBuild Projects="AgendaPlus.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Servidor">
+        <MSBuild Projects="Servidor\Servidor.dproj"/>
+    </Target>
+    <Target Name="Servidor:Clean">
+        <MSBuild Projects="Servidor\Servidor.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Servidor:Make">
+        <MSBuild Projects="Servidor\Servidor.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="AgendaPlus;Servidor"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="AgendaPlus:Clean;Servidor:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="AgendaPlus:Make;Servidor:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

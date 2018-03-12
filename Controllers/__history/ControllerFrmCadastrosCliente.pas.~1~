@@ -1,0 +1,19 @@
+unit ControllerFrmCadastrosCliente;
+
+interface
+uses
+Fmx.Listview;
+Type
+IControllerClientes = interface
+ function Save():IControllerClientes;
+ function Listar(AListview:TListview):IControllerClientes;
+ function Update():IControllerClientes;
+ function Remove():IControllerClientes;
+end;
+TControllerClientes = class(TInterfacedObject,IControllerClientes)
+
+end;
+
+implementation
+
+end.

@@ -1,0 +1,129 @@
+unit UfrmCalendar;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
+  FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
+  UfrmBase, FMX.TMSBaseControl, FMX.TMSCalendar, FMX.MultiView, FMX.Objects,
+  FMX.Controls.Presentation, FMX.Layouts, FMX.Effects, FMX.Ani;
+
+type
+  TFrmCalendar = class(TFrmBase)
+    Layout1: TLayout;
+    Layout2: TLayout;
+    Layout3: TLayout;
+    Layout4: TLayout;
+    StyleBook1: TStyleBook;
+    Image1: TImage;
+    TMSFMXCalendar1: TTMSFMXCalendar;
+    Text2: TText;
+    Rectangle1: TRectangle;
+    Text3: TText;
+    Text4: TText;
+    Circle1: TCircle;
+    Text5: TText;
+    LayEscurecer: TLayout;
+    Rectangle2: TRectangle;
+    Layout5: TLayout;
+    Rectangle3: TRectangle;
+    Text6: TText;
+    Layout6: TLayout;
+    GridPanelLayout1: TGridPanelLayout;
+    RoundRect1: TRoundRect;
+    RoundRect2: TRoundRect;
+    Text7: TText;
+    Text8: TText;
+    AniVerMSG: TFloatAnimation;
+    GlowEffect1: TGlowEffect;
+    AniEsconderMSGinfo: TFloatAnimation;
+    procedure LayEscurecerClick(Sender: TObject);
+    procedure TMSFMXCalendar1DaySelect(Sender: TObject; ADate: TDate);
+    procedure Text8Click(Sender: TObject);
+    procedure Text7Click(Sender: TObject);
+    procedure AniEsconderMSGinfoFinish(Sender: TObject);
+  private
+  vergendamento:boolean;
+  procedure mostrarMSGinfo;
+  procedure esconderMSGinfo;
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmCalendar: TFrmCalendar;
+
+implementation
+
+{$R *.fmx}
+
+uses Controller.FrmCalendar;
+
+{ TFrmCalendar }
+
+procedure TFrmCalendar.AniEsconderMSGinfoFinish(Sender: TObject);
+var
+ Controller:IController;
+begin
+inherited;
+   Controller:=TController.Create;
+   LayEscurecer.Visible:=false;
+   Rectangle3.Width:=0;
+   if vergendamento = true then
+     begin
+
+       controller.ShowForm;
+     end;
+end;
+
+procedure TFrmCalendar.esconderMSGinfo;
+begin
+AniEsconderMSGinfo.start;
+end;
+
+procedure TFrmCalendar.LayEscurecerClick(Sender: TObject);
+begin
+  inherited;
+esconderMSGinfo;
+end;
+
+procedure TFrmCalendar.mostrarMSGinfo;
+begin
+LayEscurecer.Visible:=true;
+AniVerMSG.Start;
+end;
+
+procedure TFrmCalendar.Text7Click(Sender: TObject);
+begin
+  inherited;
+vergendamento:=true;
+esconderMSGinfo;
+end;
+
+procedure TFrmCalendar.Text8Click(Sender: TObject);
+begin
+  inherited;
+vergendamento:=false;
+esconderMSGinfo;
+end;
+
+procedure TFrmCalendar.TMSFMXCalendar1DaySelect(Sender: TObject; ADate: TDate);
+Var
+Controller:IController;
+
+begin
+  inherited;
+
+  Controller:=TController.Create;
+ // Controller.CriarFuncionariosFicticios;
+  Controller.CreateAgendar.Agendar(ADate);
+ // Controller.CreateAgendar.Agendar(ADate);
+  Controller.ShowForm;
+ // mostrarMSGinfo;
+end;
+
+initialization
+ReportMemoryLeaksOnShutdown:=true;
+
+end.

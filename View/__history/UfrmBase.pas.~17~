@@ -1,0 +1,83 @@
+unit UfrmBase;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.MultiView,
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects, FMX.Layouts,
+  FMX.TabControl,System.threading,UWorks, FMX.Ani, FMX.ListBox;
+
+type
+  TProcedure = procedure;
+  TFrmBase = class(TForm)
+    LayTudo: TLayout;
+    LayTop: TLayout;
+    LayBtnMenu: TLayout;
+    LayBack: TLayout;
+    LayLogo: TLayout;
+    BGTopo: TRectangle;
+    BntMenu: TButton;
+    LayContent: TLayout;
+    MenuMultiview: TMultiView;
+    BGMenu: TRectangle;
+    BtnBack: TButton;
+    ImgLogo: TImage;
+    LaySubMenu: TLayout;
+    BGSubTitle: TRectangle;
+    TextSubitle: TText;
+    Text1: TText;
+    LayLoad: TLayout;
+    BGLoad: TRectangle;
+    Arc1: TArc;
+    FloatLoad: TFloatAnimation;
+    TextLoad: TText;
+    ListBox1: TListBox;
+    ListBoxGroupHeader1: TListBoxGroupHeader;
+    ListBoxItem1: TListBoxItem;
+    ListBoxGroupHeader2: TListBoxGroupHeader;
+    ListBoxItem2: TListBoxItem;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure ExecuteWork(AWork:IWork);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmBase: TFrmBase;
+
+implementation
+  uses
+  UfrmCadastrosCliente;
+{$R *.fmx}
+
+
+procedure TFrmBase.ExecuteWork(Awork:IWork);
+ var
+ Task:TThread;
+begin
+self.LayLoad.Visible:=true;
+self.FloatLoad.Enabled:=true;
+Task:=TThread.CreateAnonymousThread(procedure
+                                      begin
+
+                                       AWork.execute;
+                                       Task.Synchronize(Task,procedure
+                                                              begin
+                                                              self.LayLoad.Visible:=False;
+                                                              Self.FloatLoad.Enabled:=False;
+                                                              end);
+                                      end);
+ Task.Start;
+
+
+end;
+
+procedure TFrmBase.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+//Action:=TCloseAction.caFree;
+end;
+
+end.

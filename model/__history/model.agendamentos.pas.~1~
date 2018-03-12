@@ -1,0 +1,24 @@
+unit model.agendamentos;
+
+interface
+uses
+ model.marcacao,System.Generics.collections;
+Type
+TAgendamentos = class
+  private
+    FMarcacoes: TObjectList<TMarcacao>;
+    procedure SetMarcacoes(const Value: TObjectList<TMarcacao>);
+  published
+  property Marcacoes:TObjectList<TMarcacao> read FMarcacoes write SetMarcacoes;
+end;
+
+implementation
+
+{ TAgendamentos }
+
+procedure TAgendamentos.SetMarcacoes(const Value: TObjectList<TMarcacao>);
+begin
+  FMarcacoes := Value;
+end;
+
+end.
