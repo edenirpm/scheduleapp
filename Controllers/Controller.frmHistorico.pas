@@ -16,17 +16,40 @@ IController = interface
   procedure ListarClientes(AListview:TListview;AImageList:TImageList);
   procedure ListarAgendamentos(AListview:TListview;AImageList:TImageList;AclientName:string);
   procedure ListarOrcamentos(AListview:TListview;AImageList:TImageList;AclientName:string);
+  procedure ClienteNome(AClientNAme:string);
+  procedure DeletarOrcamento(Aindex,AClientIndex:integer);
 end;
 
 TController = class(TinterfacedObject,IController)
   procedure ListarClientes(AListview:TListview;AImageList:TImageList);
   procedure ListarAgendamentos(AListview:TListview;AImageList:TImageList;AclientName:string);
   procedure ListarOrcamentos(AListview:TListview;AImageList:TImageList;AclientName:string);
+  procedure ClienteNome(AClientNAme:string);
+  procedure DeletarOrcamento(Aindex,AClientIndex:integer);
 end;
 
 implementation
 
+uses
+  FMX.Dialogs;
+
 { TController }
+
+procedure TController.ClienteNome(AClientNAme: string);
+var
+Agendar:TAgendar;
+begin
+Agendar:=TAgendar.GetInstance;
+Agendar.ClienteName:=AClientNAme;
+end;
+
+procedure TController.DeletarOrcamento(Aindex,AClientIndex: integer);
+var
+Agendar:TAgendar;
+begin
+ Agendar:=TAgendar.GetInstance;
+ Agendar.Clientes[AClientIndex].Orcamentos.Delete(Aindex);
+end;
 
 procedure TController.ListarAgendamentos(AListview: TListview;
   AImageList: TImageList;AclientName:string);
@@ -78,41 +101,34 @@ end;
 
 procedure TController.ListarOrcamentos(AListview: TListview;
   AImageList: TImageList; AclientName: string);
- var
+var
  Agendar:TAgendar;
- Client:TCliente;
- Orcamento:Torcamento;
+ Cliente:TCliente;
+ Orcamento:TOrcamento;
 begin
+Alistview.Items.Clear;
+Agendar:=TAgendar.GetInstance;
  {$ifdef Android}
  Toast('Aguarde...',LongToast);
 {$endif}
-  Agendar:=TAgendar.GetInstance;
-  AListview.Items.Clear;
-  try
-    for Client in Agendar.Clientes do
-    begin
-     try
-      {  for Orcamento in Client.Orcamentos do
-        begin
-          with AListview.Items.Add do
+ for Cliente in Agendar.Clientes do
+ begin
+  if cliente.Nome = Agendar.ClienteName then
+   begin
+      begin
+       for Orcamento in Cliente.Orcamentos do
+       begin
+        with AListview.Items.Add do
             begin
-               Data['Nome']:=FormatDatetime('dddd dd "de" mmmm "de" yyyy',orcamento.Data);
-               Data['Valor']:= Orcamento.valor;
-               Data['Status']:=Orcamento.status;
-               Data['Foto']:= AimageList.Source[3].ID;
-               Data['Lixo']:= AimageList.Source[2].ID;
+             Data['Nome']:='Data: '+FormatDatetime ('dd/mm/yyyy',Orcamento.Data);
+             Data['Valor']:='Valor: '+FormatCurr('R$ ###,##0.00', Orcamento.valor);
+             Data['Foto']:=AimageList.Source[0].ID;
+             Data['Lixo']:=AimageList.Source[2].ID;
             end;
-        end;}
-     Except
-       {$ifdef Android}
-          Toast('Este cliente não possui orçamentos.',LongToast);
-       {$endif}
+       end;
      end;
-
-    end;
-  Except
-
-  end;
+   end;
+ end;
 
 
 end;

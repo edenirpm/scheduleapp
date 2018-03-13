@@ -21,6 +21,7 @@ uses
     FServicos: TObjectList<TServico>;
     FEmpresa: TEmpresa;
     FRequisicoes: TObjectList<TAgendados>;
+    FClienteName: string;
     procedure SetFuncionarios(const Value: TObjectList<TFuncionario>);
     procedure SetData(const Value: TDate);
     procedure SetDatas(const Value: TList<TDate>);
@@ -30,6 +31,7 @@ uses
     procedure SetServicos(const Value: TObjectList<TServico>);
     procedure SetEmpresa(const Value: TEmpresa);
     procedure SetRequisicoes(const Value: TObjectList<TAgendados>);
+    procedure SetClienteName(const Value: string);
   published
    property Datas:TList<TDate> read FDatas write SetDatas;
    property Funcionarios:TObjectList<TFuncionario> read FFuncionarios write SetFuncionarios;
@@ -39,6 +41,7 @@ uses
    property Servicos:TObjectList<TServico> read FServicos write SetServicos;
    property Empresa:TEmpresa read FEmpresa write SetEmpresa;
    property Requisicoes:TObjectList<TAgendados> read FRequisicoes write SetRequisicoes;
+   property ClienteName:string read FClienteName write SetClienteName;
    destructor destroy;override;
    procedure AddData(ADate:TDate);
   public
@@ -94,6 +97,11 @@ FRequisicoes.Free;
 end;
 
 
+
+procedure TAgendar.SetClienteName(const Value: string);
+begin
+  FClienteName := Value;
+end;
 
 procedure TAgendar.SetClientes(const Value: TObjectList<TCliente>);
 begin

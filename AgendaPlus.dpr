@@ -56,6 +56,5 @@ begin
   Application.Initialize;
   Application.CreateForm(TFrmLogin, FrmLogin);
   Application.CreateForm(TFrmBase, FrmBase);
-  Application.CreateForm(TFrmCadastrarOrcamento, FrmCadastrarOrcamento);
   Application.Run;
 end.

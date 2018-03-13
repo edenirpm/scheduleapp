@@ -47,6 +47,8 @@ type
     Rectangle5: TRectangle;
     Text7: TText;
     ChangeTabAction3: TChangeTabAction;
+    SpeedButton1: TSpeedButton;
+    ImageList2: TImageList;
     procedure ListView1ItemClickEx(const Sender: TObject; ItemIndex: Integer;
       const LocalClickPos: TPointF; const ItemObject: TListItemDrawable);
     procedure FormActivate(Sender: TObject);
@@ -57,6 +59,10 @@ type
     procedure Text2Click(Sender: TObject);
     procedure Text4Click(Sender: TObject);
     procedure Text5Click(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure ListarORcamentos;
+    procedure ListView3ItemClickEx(const Sender: TObject; ItemIndex: Integer;
+      const LocalClickPos: TPointF; const ItemObject: TListItemDrawable);
   private
     { Private declarations }
   public
@@ -66,6 +72,7 @@ type
 var
   FrmHistorico: TFrmHistorico;
   NameClient:string;
+  IndexClient:integer;
 implementation
  uses
   Controller.FrmHistorico,UfrmCadastrarOrcamento;
@@ -112,15 +119,61 @@ begin
 LayQuestion.Visible:=False;
 end;
 
+procedure TFrmHistorico.ListarORcamentos;
+var
+ Ctrl:IController;
+begin
+  inherited;
+ try
+   Ctrl:=TController.create;
+   Ctrl.Listarorcamentos(Listview3,Imagelist1,NameClient);
+ finally
+  LayQuestion.Visible:=False;
+  ChangeTabAction3.ExecuteTarget(self);
+ end;
+
+end;
+
 procedure TFrmHistorico.ListView1ItemClickEx(const Sender: TObject;
   ItemIndex: Integer; const LocalClickPos: TPointF;
   const ItemObject: TListItemDrawable);
+var
+Ctrl:IController;
 begin
-   NameClient:= Listview1.Items[ItemIndex].Data['Nome'].AsString;
-   Text6.Text:=NameClient;
-   LayQuestion.Visible:=true;
+   try
+    Ctrl:=TController.Create;
+    NameClient:= Listview1.Items[ItemIndex].Data['Nome'].AsString;
+    IndexClient:=Itemindex;
+    Ctrl.ClienteNome(NameClient);
+    Text6.Text:=NameClient;
+    LayQuestion.Visible:=true;
+
+   finally
+
+   end;
+
 end;
 
+
+procedure TFrmHistorico.ListView3ItemClickEx(const Sender: TObject;
+  ItemIndex: Integer; const LocalClickPos: TPointF;
+  const ItemObject: TListItemDrawable);
+var
+Ctrl:IController;
+begin
+  inherited;
+  Ctrl:=TController.Create;
+ if LocalClickPos.X>270   then
+  begin
+  Ctrl.DeletarOrcamento(Itemindex,IndexClient);
+  ListarORcamentos;
+  end;
+end;
+
+procedure TFrmHistorico.SpeedButton1Click(Sender: TObject);
+begin
+  ListarORcamentos;
+end;
 
 procedure TFrmHistorico.Text2Click(Sender: TObject);
 var
@@ -138,18 +191,8 @@ begin
 end;
 
 procedure TFrmHistorico.Text4Click(Sender: TObject);
-var
- Ctrl:IController;
 begin
-  inherited;
- try
-   Ctrl:=TController.create;
-   Ctrl.Listarorcamentos(Listview3,Imagelist1,NameClient);
- finally
-  LayQuestion.Visible:=False;
-  ChangeTabAction3.ExecuteTarget(self);
- end;
-
+ListarORcamentos;
 end;
 
 procedure TFrmHistorico.Text5Click(Sender: TObject);
