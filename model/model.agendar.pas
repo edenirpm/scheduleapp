@@ -5,8 +5,10 @@ uses
  System.generics.collections,
  model.funcionario,
  model.empresa,
+ model.agendar1,
  model.cliente,
  model.agendados,
+ model.key,
  model.servico;
 
  Type
@@ -20,8 +22,9 @@ uses
     FClientes: TObjectList<TCliente>;
     FServicos: TObjectList<TServico>;
     FEmpresa: TEmpresa;
-    FRequisicoes: TObjectList<TAgendados>;
+    FRequisicoes: TObjectList<TAgendar1>;
     FClienteName: string;
+    FKey: TKey;
     procedure SetFuncionarios(const Value: TObjectList<TFuncionario>);
     procedure SetData(const Value: TDate);
     procedure SetDatas(const Value: TList<TDate>);
@@ -30,8 +33,9 @@ uses
     procedure SetClientes(const Value: TObjectList<TCliente>);
     procedure SetServicos(const Value: TObjectList<TServico>);
     procedure SetEmpresa(const Value: TEmpresa);
-    procedure SetRequisicoes(const Value: TObjectList<TAgendados>);
+    procedure SetRequisicoes(const Value: TObjectList<TAgendar1>);
     procedure SetClienteName(const Value: string);
+    procedure SetKey(const Value: TKey);
   published
    property Datas:TList<TDate> read FDatas write SetDatas;
    property Funcionarios:TObjectList<TFuncionario> read FFuncionarios write SetFuncionarios;
@@ -40,8 +44,9 @@ uses
    property Clientes:TObjectList<TCliente> read FClientes write SetClientes;
    property Servicos:TObjectList<TServico> read FServicos write SetServicos;
    property Empresa:TEmpresa read FEmpresa write SetEmpresa;
-   property Requisicoes:TObjectList<TAgendados> read FRequisicoes write SetRequisicoes;
+   property Requisicoes:TObjectList<TAgendar1> read FRequisicoes write SetRequisicoes;
    property ClienteName:string read FClienteName write SetClienteName;
+   property Key:TKey read FKey write SetKey;
    destructor destroy;override;
    procedure AddData(ADate:TDate);
   public
@@ -81,7 +86,8 @@ FDatas:=TList<TDate>.create;
 FClientes:=TObjectList<TCliente>.create;
 FServicos:=TObjectList<TServico>.create;
 FEmpresa:=TEmpresa.create;
-FRequisicoes:=TObjectList<TAgendados>.create;
+FKey:=TKey.Create;
+FRequisicoes:=TObjectList<TAgendar1>.create;
 end;
 
 destructor TAgendar.destroy;
@@ -93,6 +99,7 @@ FClientes.Free;
 FServicos.Free;
 FEmpresa.Free;
 FRequisicoes.Free;
+FKey.free;
   inherited;
 end;
 
@@ -138,7 +145,12 @@ begin
   FIndexFuncionario := Value;
 end;
 
-procedure TAgendar.SetRequisicoes(const Value: TObjectList<TAgendados>);
+procedure TAgendar.SetKey(const Value: TKey);
+begin
+  FKey := Value;
+end;
+
+procedure TAgendar.SetRequisicoes(const Value: TObjectList<TAgendar1>);
 begin
   FRequisicoes := Value;
 end;

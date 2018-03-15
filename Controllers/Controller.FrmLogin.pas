@@ -2,23 +2,32 @@ unit Controller.FrmLogin;
 
 interface
 uses
-UDao,model.agendar,model.ListAgendar,{$ifdef Android}AndroidApi.Jni.Toast,{$endif}uworks,UfrmCalendar,
-  FMX.Forms;
+UDao,
+System.Inifiles,
+model.agendar,
+model.ListAgendar,
+{$ifdef Android}AndroidApi.Jni.Toast,{$endif}
+uworks,
+UfrmCalendar,
+FMX.Forms, System.SysUtils;
 Type
 IControllerLogin = interface
  ['{D29855E8-68DC-4B0D-8E9E-7B19BD278BBC}']
  function doLogin(AUser,APassword:string):Boolean;
  function Execute: IWork; overload;
  function Execute(AUser,APassword:string):Iwork; overload;
+ function AutoLogin:IControllerLogin;overload;
+ function AutoLogin(AKey:string):IControllerLogin;overload;
 end;
 
 TControllerLogin = class (TInterfacedObject,IControllerLogin,IWork)
-  function doLogin(AUser,APassword:string):Boolean;
+   function doLogin(AUser,APassword:string):Boolean;
    function CreateSingleton:IControllerLogin;
    function ReleaseInstance:IControllerLogin;
    function Execute: IWork; overload;
    function Execute(AUser,APassword:string):Iwork; overload;
-
+   function AutoLogin:IControllerLogin;overload;
+   function AutoLogin(AKey:string):IControllerLogin;overload;
 end;
 
 
@@ -28,6 +37,40 @@ uses
   FMX.Dialogs;
 
 { TController }
+
+function TControllerLogin.AutoLogin: IControllerLogin;
+ var
+ ini:TInifile;
+ Agendar:TAgendar;
+ Dao:IDao;
+begin
+Result:=Self;
+ Agendar:=TAgendar.GetInstance;
+ try
+   Ini:=TIniFile.Create(GetHomePath + PathDelim +'login.ini');
+   Agendar.Key.Name:= ini.ReadString('Login','Key','');
+   if Agendar.Key.Name <>'' then
+      begin
+       Dao:=TFirebase.create;
+       Dao.Refresh;
+      end;
+ finally
+  ini.Free;
+ end;
+end;
+
+function TControllerLogin.AutoLogin(AKey: string): IControllerLogin;
+var
+Ini:TInifile;
+begin
+Result:=Self;
+ try
+   Ini:=TIniFile.Create(GetHomePath + PathDelim +'login.ini');
+   ini.WriteString('Login','Key',Akey);
+ finally
+   Ini.Free;
+ end;
+end;
 
 function TControllerLogin.CreateSingleton: IControllerLogin;
 var
@@ -41,7 +84,8 @@ var
 Agendar:TAgendar;
 Dao:IDao;
 begin
-  Dao:=TDao.create;
+  //Dao:=TDao.create;
+  Dao:=TFirebase.create;
   Dao.doLogin(AUSer,Apassword);
   Agendar:=TAgendar.GetInstance;
 

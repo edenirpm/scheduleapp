@@ -47,6 +47,8 @@ type
     function doLogin:boolean;
     procedure Text4Click(Sender: TObject);
     procedure ExecuteWork(AWork:IWork);
+    procedure Autologin;
+    procedure FormShow(Sender: TObject);
   private
 
     { Private declarations }
@@ -60,6 +62,30 @@ var
 implementation
 
 {$R *.fmx}
+
+procedure TFrmLogin.Autologin;
+var
+Agendar:TAgendar;
+Ctrl:IControllerLogin;
+begin
+ Agendar:=TAgendar.GetInstance;
+ Ctrl:=TControllerLogin.Create;
+ try
+  Ctrl.AutoLogin;
+ finally
+   if Agendar.Key.Name<>'' then
+    begin
+     Application.CreateForm(TFrmCalendar, FrmCalendar);
+     FrmCalendar.show;
+    end else
+          begin
+            Application.CreateForm(TFrmCadastro, FrmCadastro);
+            FrmCadastro.show;
+          end;
+ end;
+
+
+end;
 
 function TFrmLogin.doLogin:boolean;
 var
@@ -96,6 +122,11 @@ Task:=TThread.CreateAnonymousThread(procedure
    self.LayLoad.Visible:=False;
    Self.FloatLoad.Enabled:=False;
   {$endif}
+end;
+
+procedure TFrmLogin.FormShow(Sender: TObject);
+begin
+ Autologin;
 end;
 
 procedure TFrmLogin.Text2Click(Sender: TObject);

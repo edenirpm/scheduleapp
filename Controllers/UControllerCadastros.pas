@@ -3,6 +3,7 @@ unit UControllerCadastros;
 interface
 uses
 Fmx.Forms,
+Controller.FrmLogin,
 System.SysUtils,
 model.servico,
 model.cliente,
@@ -33,6 +34,7 @@ ICadastros = interface
   procedure ShowFuncionarios;
   procedure ShowServicos;
   procedure update;
+
 end;
 
 TControllerCadastros = class(TinterfacedObject,ICadastros,IWork)
@@ -52,6 +54,7 @@ TControllerCadastros = class(TinterfacedObject,ICadastros,IWork)
   procedure ShowFuncionarios;
   procedure ShowServicos;
   procedure update;
+  procedure SaveLogin(AKey:string);
 end;
 
 implementation
@@ -60,6 +63,14 @@ uses
   FMX.Dialogs;
 
 { TControllerCadastros }
+
+procedure TControllerCadastros.SaveLogin(AKey:string);
+var
+ Ctrl:IControllerLogin;
+begin
+ Ctrl:=TControllerLogin.create;
+ Ctrl.AutoLogin(AKey);
+end;
 
 function TControllerCadastros.CadastrarEmpresa(Nome, Rua, num, bairro, cidade,
   uf, pais, ddd, celular, login, senha:string):IWork;
@@ -83,7 +94,8 @@ begin
      Agendar.Empresa.Senha:=Senha;
      Agendar.Empresa.Bloqued:=False;
    finally
-     Dao:=TDao.create;
+     Dao:=TFirebase.create;
+    // Dao:=TDao.create;
      Dao.Save;
    end;
 

@@ -48,7 +48,9 @@ uses
   model.tratamento in 'model\model.tratamento.pas',
   model.orcamento in 'model\model.orcamento.pas',
   Controller.FrmOrcamentos in 'Controllers\Controller.FrmOrcamentos.pas',
-  UfrmCadastrarOrcamento in 'View\UfrmCadastrarOrcamento.pas' {FrmCadastrarOrcamento};
+  UfrmCadastrarOrcamento in 'View\UfrmCadastrarOrcamento.pas' {FrmCadastrarOrcamento},
+  model.key in 'model\model.key.pas',
+  model.agendar1 in 'model\model.agendar1.pas';
 
 {$R *.res}
 

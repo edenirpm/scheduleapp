@@ -96,7 +96,8 @@ var
  begin
  Agendar:=Tagendar.GetInstance;
  Agendar.Funcionarios.Items[GetIndexFuncionario].Agendamentos.Marcacoes.Add(Fmarcacao);
- Dao:=TDao.create;
+ Dao:=TFirebase.create;
+ //Dao:=TDao.create;
  Dao.Update;
 end;
 
@@ -135,7 +136,8 @@ begin
            Fmarcacao.Status:='Confirmado';
           end;
       end;
-  Dao:=TDao.create;
+  //Dao:=TDao.create;
+  Dao:=TFirebase.create;
   Dao.Update;
  end;
 
@@ -255,7 +257,8 @@ begin
           end;
       end;
  end;
- Dao:=TDao.create;
+ //Dao:=TDao.create;
+ Dao:=TFirebase.create;
  Dao.Update;
 
 end;

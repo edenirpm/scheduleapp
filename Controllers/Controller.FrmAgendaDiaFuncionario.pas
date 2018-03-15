@@ -47,7 +47,8 @@ begin
       var
        Dao:IDao;
      begin
-        Dao:=TDao.create;
+        Dao:=TFirebase.create;
+        //Dao:=TDao.create;
         Dao.Refresh;
       end);
      Task.start;
