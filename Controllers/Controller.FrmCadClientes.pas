@@ -2,7 +2,7 @@ unit Controller.FrmCadClientes;
 
 interface
 uses
-model.cliente,model.agendar,UControllers;
+model.cliente,model.agendar,UControllers,Udao;
 Type
 IControllerCliente = interface
   ['{04D86979-E0E7-4E0A-AFBF-C13DA271ED6E}']
@@ -24,6 +24,7 @@ function TControllerCliente.CadastrarCliente(Nome, DDD,
 var
  Cliente:TCliente;
  Agendar:TAgendar;
+ dao:IDao;
 begin
  Result:=Self;
  try
@@ -34,6 +35,8 @@ begin
  finally
    Agendar:=TAgendar.GetInstance;
    Agendar.Clientes.Add(Cliente);
+   Dao:=Tfirebase.create;
+   Dao.Update;
  end;
 end;
 

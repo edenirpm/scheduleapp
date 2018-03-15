@@ -2,7 +2,7 @@ unit Controller.FrmCadServico;
 
 interface
 uses
-model.servico,
+model.servico,UDao,
 model.agendar;
 Type
 IControllerServico = interface
@@ -23,6 +23,7 @@ function TControllerServico.CadastrarServico(Nome: string;
 var
  Agendar:TAgendar;
  Servico:TServico;
+ Dao:IDao;
 begin
  try
      Agendar:=TAgendar.GetInstance;
@@ -33,6 +34,8 @@ begin
      finally
       Agendar.Servicos.Add(Servico);
       Result:=true;
+      Dao:=Tfirebase.create;
+      Dao.Update;
      end;
  except
  Result:=False;
