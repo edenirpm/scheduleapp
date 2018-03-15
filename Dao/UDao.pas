@@ -252,26 +252,31 @@ function Tfirebase.Refresh: IDao;
 var
  Agendar:TAgendar;
  Agendados:TAgendar1;
+ Task:ITask;
 begin
    Result:=Self;
-   Agendar:=TAgendar.GetInstance;
-   FRestClient.BaseURL:= 'https://ageon-77a4a.firebaseio.com/Documentos/'+Agendar.Key.Name+'.json';
-   FRequest.Method:=TRESTRequestMethod.rmGet;
-   FRequest.Execute;
-   try
-     Agendados:=(TJson.JsonToObject<TAgendar1>(FResponse.JSONText));
-     Agendar.Requisicoes.Clear;
-     Agendar.Requisicoes.Add(Agendados);
-     Agendar.Empresa := Agendar.Requisicoes.Last.Empresa;
-     Agendar.Funcionarios:=Agendar.Requisicoes.Last.Funcionarios;
-     Agendar.Clientes:=Agendar.Requisicoes.Last.Clientes;
-     Agendar.Servicos:=Agendar.Requisicoes.Last.Servicos;
-   finally
+  //  Task:=Ttask.Create(procedure
+ //  begin
+       Agendar:=TAgendar.GetInstance;
+       FRestClient.BaseURL:= 'https://ageon-77a4a.firebaseio.com/Documentos/'+Agendar.Key.Name+'.json';
+       FRequest.Method:=TRESTRequestMethod.rmGet;
+       FRequest.Execute;
+       try
+         Agendados:=(TJson.JsonToObject<TAgendar1>(FResponse.JSONText));
+         Agendar.Requisicoes.Clear;
+         Agendar.Requisicoes.Add(Agendados);
+         Agendar.Empresa := Agendar.Requisicoes.Last.Empresa;
+         Agendar.Funcionarios:=Agendar.Requisicoes.Last.Funcionarios;
+         Agendar.Clientes:=Agendar.Requisicoes.Last.Clientes;
+         Agendar.Servicos:=Agendar.Requisicoes.Last.Servicos;
+       finally
 
-    // Agendados.Free;
-   end;
+        // Agendados.Free;
+       end;
 
 
+ //   end);
+ //   Task.Start;
 end;
 
 function Tfirebase.Save: Idao;
@@ -281,7 +286,7 @@ function Tfirebase.Save: Idao;
   Url:string;
 begin
 
-  begin
+ { begin
      Agendar:=TAgendar.GetInstance;
      try
       Url:='https://ageon-77a4a.firebaseio.com/Documentos.json';
@@ -296,23 +301,27 @@ begin
      finally
      end;
 
-  end;
+  end;     }
 
- {$ifdef android}
  Task:=Ttask.Create(procedure
    begin
-     Agendar:=TAgendar.GetInstance;
+       Agendar:=TAgendar.GetInstance;
      try
-       FRequest.Resource:='/Documentos.json';
+      Url:='https://ageon-77a4a.firebaseio.com/Documentos.json';
+       FRestClient.BaseURL:=Url;
        FRequest.Method:=TRESTRequestMethod.rmPOST;
        FRequest.AddBody(TJson.ObjectToJsonString(Agendar),ContentTypeFromString('application/json'));
        FRequest.Execute;
+       Agendar.Key:=TJson.JsonToObject<TKey>(FResponse.Content);
+       FKey:=Agendar.Key.Name;
+       SaveLogin(Fkey);
+       Update;
      finally
      end;
 
     end);
 task.Start;
-{$endif}
+
 end;
 procedure Tfirebase.SaveLogin(AKey: string);
 var
@@ -329,8 +338,11 @@ end;
 function Tfirebase.Update: Idao;
 var
 Agendar:TAgendar;
+Task:ITask;
 url:string;
   begin
+ //  Task:=Ttask.Create(procedure
+  // begin
      Agendar:=TAgendar.GetInstance;
      try
        FRestClient.BaseURL:='';
@@ -343,6 +355,8 @@ url:string;
      finally
      end;
 
+//  end);
+//  Task.Start;
   end;
 
 end.

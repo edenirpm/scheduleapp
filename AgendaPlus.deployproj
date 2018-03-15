@@ -22,6 +22,15 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
+        <DeployFile Include="ModelSupport_AgendaPlus\model\default.txvpck" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>AgendaPlus\</RemoteDir>
+            <RemoteName>default.txvpck</RemoteName>
+            <DeployClass>ProjectFile</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
         <DeployFile Include="ModelSupport_AgendaPlus\Controller\default.txvpck" Condition="'$(Config)'=='Debug'">
             <RemoteDir>AgendaPlus\</RemoteDir>
             <RemoteName>default.txvpck</RemoteName>
@@ -203,15 +212,6 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="ModelSupport_AgendaPlus\model\single\default.txaPackage" Condition="'$(Config)'=='Release'">
-            <RemoteDir>AgendaPlus\</RemoteDir>
-            <RemoteName>default.txaPackage</RemoteName>
-            <DeployClass>ProjectFile</DeployClass>
-            <Operation>0</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-        </DeployFile>
         <DeployFile Include="Win32\Debug\AgendaPlus.exe" Condition="'$(Config)'=='Debug'">
             <RemoteDir>AgendaPlus\</RemoteDir>
             <RemoteName>AgendaPlus.exe</RemoteName>
@@ -223,6 +223,15 @@
             <Required>True</Required>
         </DeployFile>
         <DeployFile Include="ModelSupport_AgendaPlus\Controller\FrmAgendar\Singleton\default.txaPackage" Condition="'$(Config)'=='Release'">
+            <RemoteDir>AgendaPlus\</RemoteDir>
+            <RemoteName>default.txaPackage</RemoteName>
+            <DeployClass>ProjectFile</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="ModelSupport_AgendaPlus\model\single\default.txaPackage" Condition="'$(Config)'=='Release'">
             <RemoteDir>AgendaPlus\</RemoteDir>
             <RemoteName>default.txaPackage</RemoteName>
             <DeployClass>ProjectFile</DeployClass>
@@ -438,15 +447,6 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="ModelSupport_AgendaPlus\model\default.txvpck" Condition="'$(Config)'=='Debug'">
-            <RemoteDir>AgendaPlus\</RemoteDir>
-            <RemoteName>default.txvpck</RemoteName>
-            <DeployClass>ProjectFile</DeployClass>
-            <Operation>0</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-        </DeployFile>
     </ItemGroup>
     <ItemGroup Condition="'$(Platform)'=='Linux64'"/>
     <ItemGroup Condition="'$(Platform)'=='OSX32'">
@@ -470,15 +470,6 @@
         </DeployFile>
     </ItemGroup>
     <ItemGroup Condition="'$(Platform)'=='Android'">
-        <DeployFile Include="Android\Release\AndroidManifest.xml" Condition="'$(Config)'=='Release'">
-            <RemoteDir>AgendaPlus\</RemoteDir>
-            <RemoteName>AndroidManifest.xml</RemoteName>
-            <DeployClass>ProjectAndroidManifest</DeployClass>
-            <Operation>1</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-        </DeployFile>
         <DeployFile Include="ModelSupport_AgendaPlus\UfrmCadastro\default.txvpck" Condition="'$(Config)'=='Release'">
             <RemoteDir>AgendaPlus\assets\internal\</RemoteDir>
             <RemoteName>default.txvpck</RemoteName>
@@ -623,19 +614,19 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="$(BDS)\bin\Artwork\Android\FM_LauncherIcon_48x48.png" Condition="'$(Config)'=='Release'">
-            <RemoteDir>AgendaPlus\res\drawable-mdpi\</RemoteDir>
-            <RemoteName>ic_launcher.png</RemoteName>
-            <DeployClass>Android_LauncherIcon48</DeployClass>
+        <DeployFile Include="Android\Release\classes.dex" Condition="'$(Config)'=='Release'">
+            <RemoteDir>AgendaPlus\classes\</RemoteDir>
+            <RemoteName>classes.dex</RemoteName>
+            <DeployClass>AndroidClassesDexFile</DeployClass>
             <Operation>1</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="Android\Release\classes.dex" Condition="'$(Config)'=='Release'">
-            <RemoteDir>AgendaPlus\classes\</RemoteDir>
-            <RemoteName>classes.dex</RemoteName>
-            <DeployClass>AndroidClassesDexFile</DeployClass>
+        <DeployFile Include="$(BDS)\bin\Artwork\Android\FM_LauncherIcon_48x48.png" Condition="'$(Config)'=='Release'">
+            <RemoteDir>AgendaPlus\res\drawable-mdpi\</RemoteDir>
+            <RemoteName>ic_launcher.png</RemoteName>
+            <DeployClass>Android_LauncherIcon48</DeployClass>
             <Operation>1</Operation>
             <LocalCommand/>
             <RemoteCommand/>
@@ -813,7 +804,7 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="ModelSupport_AgendaPlus\UfrmCadFuncionario\default.txvpck" Condition="'$(Config)'=='Release'">
+        <DeployFile Include="ModelSupport_AgendaPlus\model\agendar\default.txvpck" Condition="'$(Config)'=='Release'">
             <RemoteDir>AgendaPlus\assets\internal\</RemoteDir>
             <RemoteName>default.txvpck</RemoteName>
             <DeployClass>ProjectFile</DeployClass>
@@ -822,7 +813,16 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="ModelSupport_AgendaPlus\model\agendar\default.txvpck" Condition="'$(Config)'=='Release'">
+        <DeployFile Include="Android\Release\AndroidManifest.xml" Condition="'$(Config)'=='Release'">
+            <RemoteDir>AgendaPlus\</RemoteDir>
+            <RemoteName>AndroidManifest.xml</RemoteName>
+            <DeployClass>ProjectAndroidManifest</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="ModelSupport_AgendaPlus\UfrmCadFuncionario\default.txvpck" Condition="'$(Config)'=='Release'">
             <RemoteDir>AgendaPlus\assets\internal\</RemoteDir>
             <RemoteName>default.txvpck</RemoteName>
             <DeployClass>ProjectFile</DeployClass>
