@@ -3,7 +3,7 @@ unit Controller.frmHistorico;
 interface
 uses
 model.agendar,System.SysUtils,{$ifdef Android}AndroidApi.Jni.Toast,{$endif}
-model.funcionario,
+model.funcionario,UDao,
 model.marcacao,
 model.cliente,
 Fmx.Listview,
@@ -18,6 +18,7 @@ IController = interface
   procedure ListarOrcamentos(AListview:TListview;AImageList:TImageList;AclientName:string);
   procedure ClienteNome(AClientNAme:string);
   procedure DeletarOrcamento(Aindex,AClientIndex:integer);
+  procedure Update;
 end;
 
 TController = class(TinterfacedObject,IController)
@@ -26,6 +27,7 @@ TController = class(TinterfacedObject,IController)
   procedure ListarOrcamentos(AListview:TListview;AImageList:TImageList;AclientName:string);
   procedure ClienteNome(AClientNAme:string);
   procedure DeletarOrcamento(Aindex,AClientIndex:integer);
+  procedure Update;
 end;
 
 implementation
@@ -49,6 +51,7 @@ Agendar:TAgendar;
 begin
  Agendar:=TAgendar.GetInstance;
  Agendar.Clientes[AClientIndex].Orcamentos.Delete(Aindex);
+ update;
 end;
 
 procedure TController.ListarAgendamentos(AListview: TListview;
@@ -132,4 +135,12 @@ Agendar:=TAgendar.GetInstance;
 
 
 end;
+procedure TController.Update;
+var
+ Dao:IDao;
+begin
+ Dao:=Tfirebase.create;
+ Dao.Update;
+end;
+
 end.

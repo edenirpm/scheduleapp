@@ -2,7 +2,7 @@ unit Controller.FrmOrcamentos;
 
 interface
 uses
-FMX.ListView,
+FMX.ListView,Udao,
 FMX.ImgList,
 model.cliente,
 model.Servico,
@@ -23,6 +23,7 @@ TControllerOrcamento = class(TInterfacedObject,IControllerOrcamento)
   procedure AddServicosOrcamento(NomeServico:string;Valor:Currency);
   procedure RemoveServicosOrcamento(AIndexServico:integer);
   procedure ListarProcedimentos(AListview:TListview;AImageList:TImageList);
+  procedure Update;
   function ClienteName:string;
   constructor create;
   destructor destroy;override;
@@ -49,6 +50,7 @@ begin
    begin
      FOrcamento.Data:=Now;
      Cliente.Orcamentos.Add(FOrcamento);
+     update;
    end;
  end;
 end;
@@ -155,6 +157,7 @@ Agendar:=TAgendar.GetInstance;
    if Cliente.Nome = ANAmeCliente then
    begin
      Cliente.Orcamentos.Delete(AIndex);
+     update;
    end;
  end;
 end;
@@ -171,5 +174,13 @@ begin
  //Forcamento.Procedimentos.Delete(AindexServico);
   //showmessage(Serv.Nome);
  end;
+
+procedure TControllerOrcamento.Update;
+var
+ Dao:IDao;
+begin
+ Dao:=Tfirebase.create;
+ Dao.Update;
+end;
 
 end.
