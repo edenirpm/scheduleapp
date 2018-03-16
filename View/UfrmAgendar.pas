@@ -12,7 +12,7 @@ uses
   System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.EngExt, Fmx.Bind.DBEngExt,
   System.Actions, FMX.ActnList, FMX.DateTimeCtrls,Controller.FrmAgendar,UControllerCadastros,
   System.ImageList,{$ifdef Android}Androidapi.JNI.Toast,{$endif} FMX.ImgList,
-  FMX.Ani,UFrmCadClientes,UfrmCalendar, FMX.ListBox;
+  FMX.Ani,UFrmCadClientes,UfrmCalendar, FMX.ListBox,System.threading;
 
 type
   TFrmAgendar = class(TFrmBase)
@@ -539,20 +539,25 @@ end;
 
 
 procedure TFrmAgendar.VerificarHorariosDisponiveis(AIndexFuncionario:integer);
-var
-  I: Integer;
 begin
-  try
-    finally
-      for I := 1 to ComponentCount -1 do
+ TTask.run(procedure
+   var
+   I: Integer;
+ begin
+  for I := 1 to ComponentCount -1 do
         begin
           if Components[i] is TLabel then
              begin
              //Controller.ConsultarHorarios(Components[i] as TObject,AIndexFuncionario,strtoDate('12/02/2018'));
-             Ctrl.ConsultarHorarios(Components[i] as TObject);
-
+              TThread.Synchronize(nil, procedure begin
+              Ctrl.ConsultarHorarios(Components[i] as TObject);
+             end);
              end;
         end;
+
+ end);
+
+      
   end;
-end;
+
 end.

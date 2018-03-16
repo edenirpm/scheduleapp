@@ -84,8 +84,16 @@ var
 Ctrl:IController;
 begin
   inherited;
- Ctrl:=TController.Create;
- Ctrl.ListarClientes(Listview1,imagelist1);
+ if TabControl1.ActiveTab = TabItem1 then
+ begin
+   Ctrl:=TController.Create;
+   Ctrl.ListarClientes(Listview1,imagelist1);
+ end;
+ if TabControl1.ActiveTab = TabItem3 then
+ begin
+  ListarORcamentos;
+ end;
+
 end;
 
 procedure TFrmHistorico.FormClose(Sender: TObject; var Action: TCloseAction);

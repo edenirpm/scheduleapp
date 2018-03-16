@@ -35,8 +35,11 @@ begin
  finally
    Agendar:=TAgendar.GetInstance;
    Agendar.Clientes.Add(Cliente);
-   Dao:=Tfirebase.create;
-   Dao.Update;
+    if Agendar.Key.Name<>'' then
+    begin
+     Dao:=Tfirebase.create;
+     Dao.Update;
+    end;
  end;
 end;
 

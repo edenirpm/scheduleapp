@@ -60,26 +60,31 @@ begin
 end;
 
 function TController.ListarFuncionarios(AListView: TListview;AImageList:TImageList): IController;
-var
+begin
+ TTask.Run(procedure
+ var
  Agendar:TAgendar;
  Funcionario:TFuncionario;
-begin
- Agendar:=TAgendar.GetInstance;
- AListview.Items.Clear;
- for Funcionario  in Agendar.Funcionarios do
-      begin
-       with AListview.Items.Add do
+ begin
+  Agendar:=TAgendar.GetInstance;
+  AListview.Items.Clear;
+   for Funcionario  in Agendar.Funcionarios do
         begin
-         Data['Nome']:=Funcionario.Cordialidade +' '+ Funcionario.Nome;
-         if (Funcionario.Cordialidade ='Sra.') or (Funcionario.Cordialidade='Dra.') then
-            begin
-             Data['Foto']:= AImagelist.Source[1].ID;
-            end else
-                 begin
-                 Data['Foto']:= AImagelist.Source[0].ID;
-                 end;
+         with AListview.Items.Add do
+          begin
+           Data['Nome']:=Funcionario.Cordialidade +' '+ Funcionario.Nome;
+           if (Funcionario.Cordialidade ='Sra.') or (Funcionario.Cordialidade='Dra.') then
+              begin
+               Data['Foto']:= AImagelist.Source[1].ID;
+              end else
+                   begin
+                   Data['Foto']:= AImagelist.Source[0].ID;
+                   end;
+          end;
         end;
-      end;
+
+    end);
+
 end;
 
 procedure TController.ShowForm;

@@ -4,7 +4,7 @@ interface
 
 uses
  model.agendar,model.funcionario,{$ifdef Android}Androidapi.jni.toast,{$endif}model.marcacao,uworks, 
-  FMX.TMSCalendar;
+  FMX.TMSCalendar,System.threading,System.classes;
 
 Type
 IController = interface
@@ -93,36 +93,45 @@ end;
 
 
 function TController.UpdateCalendar(ATmsCalendar:TTMSFMXCalendar): IController;
-var
- Marcacao:TMarcacao;
- Agendar:TAgendar;
- Funcionario:TFuncionario;
- eventCalendar:TTMSFMXCalendarEvent;
- Data:TDate;
 begin
-
- Agendar:=TAgendar.GetInstance;
+TTask.run(procedure
+  var
+  Agendar:TAgendar;
+  Marcacao:TMarcacao;
+  Funcionario:TFuncionario;
+  eventCalendar:TTMSFMXCalendarEvent;
+  Data:TDate;
+ begin
+   Agendar:=TAgendar.GetInstance;
   try
     for Funcionario in Agendar.Funcionarios do
    begin
     for Marcacao in funcionario.Agendamentos.Marcacoes do
     begin
      if Agendar.Datas.Contains(Marcacao.Data) = false then
-          begin 
+          begin
            Agendar.Datas.Add(Marcacao.Data);
           end;
     end;
    end;
   finally
-    for Data in Agendar.Datas do
+    TThread.synchronize(nil,procedure
+     var
+     Data:TDate;
     begin
+    for Data in Agendar.Datas do
+     begin
       eventCalendar:=ATmsCalendar.Events.Add;
       eventCalendar.Date:=Data;
       eventCalendar.Text:='Possui agendamento';
       eventCalendar.Kind:=ekEllipse;
-    end;
+     end;
+   end);
   end;
-  
+
+ end);
+ 
+
 end;
 
 end.

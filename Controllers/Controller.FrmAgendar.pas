@@ -14,7 +14,7 @@ uses
   UWhatsApp,AndroidApi.Jni.Toast,
  {$endif}
  model.marcacao,
- model.cliente,model.contato.agenda,
+ model.cliente,model.contato.agenda,System.threading,
  model.agendar, FMX.TabControl, FMX.Objects;
 
 Type
@@ -91,14 +91,21 @@ uses
 
 function TController.Agendar: IController;
 var
- Agendar:TAgendar;
- Dao:IDao;
+
+ Task:ITask;
  begin
- Agendar:=Tagendar.GetInstance;
- Agendar.Funcionarios.Items[GetIndexFuncionario].Agendamentos.Marcacoes.Add(Fmarcacao);
- Dao:=TFirebase.create;
- //Dao:=TDao.create;
- Dao.Update;
+  Task:=TTask.create(procedure
+  var
+   Agendar:TAgendar;
+   Dao:IDao;
+  begin
+     Agendar:=Tagendar.GetInstance;
+     Agendar.Funcionarios.Items[GetIndexFuncionario].Agendamentos.Marcacoes.Add(Fmarcacao);
+     Dao:=TFirebase.create;
+   //Dao:=TDao.create;
+     Dao.Update;
+  end);
+  Task.start;
 end;
 
 

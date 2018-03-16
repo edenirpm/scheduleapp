@@ -34,8 +34,12 @@ try
    finally
     Agendar.Funcionarios.Add(Funcionario);
     Result:=true;
-    Dao:=Tfirebase.create;
-    Dao.Update;
+    if Agendar.Key.Name<>'' then
+    begin
+     Dao:=Tfirebase.create;
+     Dao.Update;
+    end;
+
    end;
 
 Except

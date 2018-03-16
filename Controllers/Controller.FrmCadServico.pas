@@ -34,8 +34,11 @@ begin
      finally
       Agendar.Servicos.Add(Servico);
       Result:=true;
-      Dao:=Tfirebase.create;
-      Dao.Update;
+      if Agendar.Key.Name<>'' then
+      begin
+       Dao:=Tfirebase.create;
+       Dao.Update;
+      end;
      end;
  except
  Result:=False;

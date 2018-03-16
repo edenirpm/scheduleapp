@@ -154,7 +154,7 @@ begin
 
   Try
     Ctrl:=TControllerCadastros.Create;
-    Ctrl.CadastrarEmpresa(edit1.text,edit2.Text,edit3.Text,edit5.Text,edit6.Text,combobox1.Items.Text,combobox2.Items.Text,edit7.Text,edit4.Text,edit9.Text,edit8.Text);
+    Ctrl.CadastrarEmpresa(edit1.text,edit2.Text,edit3.Text,edit5.Text,edit6.Text,combobox1.Selected.Text,combobox2.Selected.Text,edit7.Text,edit4.Text,edit9.Text,edit8.Text);
 
   Finally
     {$ifdef Android}

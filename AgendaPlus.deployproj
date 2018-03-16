@@ -22,6 +22,15 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
+        <DeployFile Include="ModelSupport_AgendaPlus\model\default.txvpck" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>AgendaPlus\</RemoteDir>
+            <RemoteName>default.txvpck</RemoteName>
+            <DeployClass>ProjectFile</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
         <DeployFile Include="ModelSupport_AgendaPlus\Controller\default.txvpck" Condition="'$(Config)'=='Debug'">
             <RemoteDir>AgendaPlus\</RemoteDir>
             <RemoteName>default.txvpck</RemoteName>
@@ -438,15 +447,6 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="ModelSupport_AgendaPlus\model\default.txvpck" Condition="'$(Config)'=='Debug'">
-            <RemoteDir>AgendaPlus\</RemoteDir>
-            <RemoteName>default.txvpck</RemoteName>
-            <DeployClass>ProjectFile</DeployClass>
-            <Operation>0</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-        </DeployFile>
     </ItemGroup>
     <ItemGroup Condition="'$(Platform)'=='Linux64'"/>
     <ItemGroup Condition="'$(Platform)'=='OSX32'">
@@ -470,15 +470,6 @@
         </DeployFile>
     </ItemGroup>
     <ItemGroup Condition="'$(Platform)'=='Android'">
-        <DeployFile Include="ModelSupport_AgendaPlus\UfrmCadFuncionario\default.txvpck" Condition="'$(Config)'=='Release'">
-            <RemoteDir>AgendaPlus\assets\internal\</RemoteDir>
-            <RemoteName>default.txvpck</RemoteName>
-            <DeployClass>ProjectFile</DeployClass>
-            <Operation>0</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-        </DeployFile>
         <DeployFile Include="ModelSupport_AgendaPlus\UfrmCadastro\default.txvpck" Condition="'$(Config)'=='Release'">
             <RemoteDir>AgendaPlus\assets\internal\</RemoteDir>
             <RemoteName>default.txvpck</RemoteName>
@@ -813,7 +804,16 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="ModelSupport_AgendaPlus\model\agendar\default.txvpck" Condition="'$(Config)'=='Release'">
+        <DeployFile Include="Android\Release\AndroidManifest.xml" Condition="'$(Config)'=='Release'">
+            <RemoteDir>AgendaPlus\</RemoteDir>
+            <RemoteName>AndroidManifest.xml</RemoteName>
+            <DeployClass>ProjectAndroidManifest</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="ModelSupport_AgendaPlus\UfrmCadFuncionario\default.txvpck" Condition="'$(Config)'=='Release'">
             <RemoteDir>AgendaPlus\assets\internal\</RemoteDir>
             <RemoteName>default.txvpck</RemoteName>
             <DeployClass>ProjectFile</DeployClass>
@@ -822,11 +822,11 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="Android\Release\AndroidManifest.xml" Condition="'$(Config)'=='Release'">
-            <RemoteDir>AgendaPlus\</RemoteDir>
-            <RemoteName>AndroidManifest.xml</RemoteName>
-            <DeployClass>ProjectAndroidManifest</DeployClass>
-            <Operation>1</Operation>
+        <DeployFile Include="ModelSupport_AgendaPlus\model\agendar\default.txvpck" Condition="'$(Config)'=='Release'">
+            <RemoteDir>AgendaPlus\assets\internal\</RemoteDir>
+            <RemoteName>default.txvpck</RemoteName>
+            <DeployClass>ProjectFile</DeployClass>
+            <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>

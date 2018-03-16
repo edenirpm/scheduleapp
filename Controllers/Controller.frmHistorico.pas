@@ -8,7 +8,7 @@ model.marcacao,
 model.cliente,
 Fmx.Listview,
 Fmx.ImgList,
-model.orcamento,
+model.orcamento,System.threading,
 UControllerCadastros;
 Type
 IController = interface
@@ -137,10 +137,16 @@ Agendar:=TAgendar.GetInstance;
 end;
 procedure TController.Update;
 var
- Dao:IDao;
+Task:ITask;
 begin
- Dao:=Tfirebase.create;
- Dao.Update;
+ Task:=Ttask.create(procedure
+ var
+  Dao:IDao;
+ begin
+  Dao:=Tfirebase.create;
+  Dao.Update;
+ end);
+ Task.Start;
 end;
 
 end.

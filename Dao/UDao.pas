@@ -2,7 +2,7 @@ unit UDao;
 
 interface
 uses
-  IPPeerClient,System.Threading,System.sysUtils,System.Inifiles,
+  IPPeerClient,System.Threading,System.sysUtils,System.Inifiles,System.classes,
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, REST.Response.Adapter,
@@ -52,6 +52,7 @@ Tfirebase = class(TInterfacedObject,IDAO)
    function doLogin(auser,apassword:string):IDAO;
    function Refresh:IDao;
    procedure SaveLogin(AKey:string);
+   procedure LoadKey();
 
 end;
 
@@ -148,7 +149,30 @@ function TDao.Save: Idao;
  Agendar:TAgendar;
   Task:ITask;
 begin
- {$ifdef Android}
+
+   begin
+        try
+       Agendar:=TAgendar.GetInstance;
+
+       Documento:=TAgendados.Create;
+       Documento.Funcionarios:=Agendar.Funcionarios;
+       Documento.Clientes:=Agendar.Clientes;
+       Documento.Servicos:=Agendar.Servicos;
+       Documento.Empresa:=Agendar.Empresa;
+
+       FRequest.Resource:='/Documentos';
+       FRequest.Method:=TRESTRequestMethod.rmPOST;
+       FRequest.AddBody(TJson.ObjectToJsonString(Documento),ContentTypeFromString('application/json'));
+       FRequest.Execute;
+     finally
+       Documento.Free;
+     end;
+
+    end;
+
+
+
+{$ifdef android}
  Task:=Ttask.Create(procedure
    begin
         try
@@ -171,7 +195,7 @@ begin
     end);
 
 task.Start;
-{$endif}
+ {$endif}
 end;
 
 function TDao.Update: Idao;
@@ -248,6 +272,21 @@ begin
 
 end;
 
+procedure Tfirebase.LoadKey;
+var
+Ini:TInifile;
+Agendar:TAgendar;
+begin
+ Agendar:=TAgendar.GetInstance;
+
+ try
+  Ini:=TIniFile.Create(GetHomePath + PathDelim +'login.ini');
+  Agendar.Key.Name:= ini.ReadString('Login','Key','');
+ finally
+  Ini.Free;
+ end;
+end;
+
 function Tfirebase.Refresh: IDao;
 var
  Agendar:TAgendar;
@@ -286,7 +325,7 @@ function Tfirebase.Save: Idao;
   Url:string;
 begin
 
- { begin
+ begin
      Agendar:=TAgendar.GetInstance;
      try
       Url:='https://ageon-77a4a.firebaseio.com/Documentos.json';
@@ -297,13 +336,13 @@ begin
        Agendar.Key:=TJson.JsonToObject<TKey>(FResponse.Content);
        FKey:=Agendar.Key.Name;
        SaveLogin(Fkey);
-       Update;
      finally
+       Update;
      end;
 
-  end;     }
+  end;
 
- Task:=Ttask.Create(procedure
+{ Task:=Ttask.Create(procedure
    begin
        Agendar:=TAgendar.GetInstance;
      try
@@ -320,7 +359,7 @@ begin
      end;
 
     end);
-task.Start;
+task.Start; }
 
 end;
 procedure Tfirebase.SaveLogin(AKey: string);

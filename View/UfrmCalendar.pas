@@ -46,6 +46,7 @@ type
     procedure FormKeyUp(Sender: TObject; var Key: Word; var KeyChar: Char;
       Shift: TShiftState);
     procedure FormActivate(Sender: TObject);
+    procedure Text2Click(Sender: TObject);
   private
   vergendamento:boolean;
   procedure mostrarMSGinfo;
@@ -91,6 +92,7 @@ var
  Ctrl:IController;
 begin
   inherited;
+  TMSFMXCalendar1.Date:=now;
   Ctrl:=TController.Create;
   Ctrl.UpdateCalendar(TMSFMXCalendar1);
 end;
@@ -116,6 +118,12 @@ procedure TFrmCalendar.mostrarMSGinfo;
 begin
 LayEscurecer.Visible:=true;
 AniVerMSG.Start;
+end;
+
+procedure TFrmCalendar.Text2Click(Sender: TObject);
+begin
+  inherited;
+Showmessage(GetHomePath + PathDelim );
 end;
 
 procedure TFrmCalendar.Text7Click(Sender: TObject);
