@@ -22,15 +22,6 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="ModelSupport_AgendaPlus\model\default.txvpck" Condition="'$(Config)'=='Debug'">
-            <RemoteDir>AgendaPlus\</RemoteDir>
-            <RemoteName>default.txvpck</RemoteName>
-            <DeployClass>ProjectFile</DeployClass>
-            <Operation>0</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-        </DeployFile>
         <DeployFile Include="ModelSupport_AgendaPlus\Controller\default.txvpck" Condition="'$(Config)'=='Debug'">
             <RemoteDir>AgendaPlus\</RemoteDir>
             <RemoteName>default.txvpck</RemoteName>
@@ -212,14 +203,15 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="ModelSupport_AgendaPlus\model\single\default.txaPackage" Condition="'$(Config)'=='Release'">
+        <DeployFile Include="Win32\Debug\AgendaPlus.exe" Condition="'$(Config)'=='Debug'">
             <RemoteDir>AgendaPlus\</RemoteDir>
-            <RemoteName>default.txaPackage</RemoteName>
-            <DeployClass>ProjectFile</DeployClass>
+            <RemoteName>AgendaPlus.exe</RemoteName>
+            <DeployClass>ProjectOutput</DeployClass>
             <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
+            <Required>True</Required>
         </DeployFile>
         <DeployFile Include="ModelSupport_AgendaPlus\Controller\FrmAgendar\Singleton\default.txaPackage" Condition="'$(Config)'=='Release'">
             <RemoteDir>AgendaPlus\</RemoteDir>
@@ -230,15 +222,14 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="Win32\Debug\AgendaPlus.exe" Condition="'$(Config)'=='Debug'">
+        <DeployFile Include="ModelSupport_AgendaPlus\model\single\default.txaPackage" Condition="'$(Config)'=='Release'">
             <RemoteDir>AgendaPlus\</RemoteDir>
-            <RemoteName>AgendaPlus.exe</RemoteName>
-            <DeployClass>ProjectOutput</DeployClass>
+            <RemoteName>default.txaPackage</RemoteName>
+            <DeployClass>ProjectFile</DeployClass>
             <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
-            <Required>True</Required>
         </DeployFile>
         <DeployFile Include="ModelSupport_AgendaPlus\default.txaPackage" Condition="'$(Config)'=='Debug'">
             <RemoteDir>AgendaPlus\</RemoteDir>
@@ -447,6 +438,15 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
+        <DeployFile Include="ModelSupport_AgendaPlus\model\default.txvpck" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>AgendaPlus\</RemoteDir>
+            <RemoteName>default.txvpck</RemoteName>
+            <DeployClass>ProjectFile</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
     </ItemGroup>
     <ItemGroup Condition="'$(Platform)'=='Linux64'"/>
     <ItemGroup Condition="'$(Platform)'=='OSX32'">
@@ -470,6 +470,15 @@
         </DeployFile>
     </ItemGroup>
     <ItemGroup Condition="'$(Platform)'=='Android'">
+        <DeployFile Include="ModelSupport_AgendaPlus\model\agendar\default.txvpck" Condition="'$(Config)'=='Release'">
+            <RemoteDir>AgendaPlus\assets\internal\</RemoteDir>
+            <RemoteName>default.txvpck</RemoteName>
+            <DeployClass>ProjectFile</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
         <DeployFile Include="ModelSupport_AgendaPlus\UfrmCadastro\default.txvpck" Condition="'$(Config)'=='Release'">
             <RemoteDir>AgendaPlus\assets\internal\</RemoteDir>
             <RemoteName>default.txvpck</RemoteName>
@@ -814,15 +823,6 @@
             <Overwrite>True</Overwrite>
         </DeployFile>
         <DeployFile Include="ModelSupport_AgendaPlus\UfrmCadFuncionario\default.txvpck" Condition="'$(Config)'=='Release'">
-            <RemoteDir>AgendaPlus\assets\internal\</RemoteDir>
-            <RemoteName>default.txvpck</RemoteName>
-            <DeployClass>ProjectFile</DeployClass>
-            <Operation>0</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-        </DeployFile>
-        <DeployFile Include="ModelSupport_AgendaPlus\model\agendar\default.txvpck" Condition="'$(Config)'=='Release'">
             <RemoteDir>AgendaPlus\assets\internal\</RemoteDir>
             <RemoteName>default.txvpck</RemoteName>
             <DeployClass>ProjectFile</DeployClass>

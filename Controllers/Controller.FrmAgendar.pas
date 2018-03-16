@@ -184,7 +184,7 @@ begin
                  end;
               if marcacao.Status = 'Cancelado' then
                  begin
-                  ((Sender as TLabel).Parent as TRectangle).Fill.Color:= TAlphaColorRec.Red;
+                  ((Sender as TLabel).Parent as TRectangle).Fill.Color:= TAlphaColorRec.Lightslategray;
                  end;
              end;
 
