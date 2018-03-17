@@ -22,11 +22,15 @@ TMarcacao =class
  property Cliente:TCliente read FCliente write SetCliente;
  property Status:string read FStatus write SetStatus;
  property Servico:TServico read FServico write SetServico;
+ function horarios:string;
  constructor create;
  destructor destroy;override;
 end;
 
 implementation
+
+uses
+  System.SysUtils;
 
 { TMarcacao }
 
@@ -46,6 +50,16 @@ FHoras.Free;
 FCliente.Free;
 FServico.Free;
   inherited;
+end;
+
+function TMarcacao.horarios: string;
+var
+hora:TTime;
+begin
+ for Hora in Fhoras do
+ begin
+  Result:= Result+' ,'+copy(timetostr(hora),1,5);
+ end;
 end;
 
 procedure TMarcacao.SetCliente(const Value: TCliente);

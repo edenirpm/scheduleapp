@@ -551,6 +551,15 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
+        <DeployFile Include="ModelSupport_AgendaPlus\model\requisicoes\default.txaPackage" Condition="'$(Config)'=='Release'">
+            <RemoteDir>AgendaPlus\assets\internal\</RemoteDir>
+            <RemoteName>default.txaPackage</RemoteName>
+            <DeployClass>ProjectFile</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
         <DeployFile Include="ModelSupport_AgendaPlus\UControllers\default.txvpck" Condition="'$(Config)'=='Release'">
             <RemoteDir>AgendaPlus\assets\internal\</RemoteDir>
             <RemoteName>default.txvpck</RemoteName>
@@ -773,6 +782,15 @@
             <RemoteName>ic_launcher.png</RemoteName>
             <DeployClass>Android_LauncherIcon96</DeployClass>
             <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="ModelSupport_AgendaPlus\model\requisicoes\default.txvpck" Condition="'$(Config)'=='Release'">
+            <RemoteDir>AgendaPlus\assets\internal\</RemoteDir>
+            <RemoteName>default.txvpck</RemoteName>
+            <DeployClass>ProjectFile</DeployClass>
+            <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>

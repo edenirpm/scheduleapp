@@ -22,7 +22,6 @@ uses
     FClientes: TObjectList<TCliente>;
     FServicos: TObjectList<TServico>;
     FEmpresa: TEmpresa;
-    FRequisicoes: TObjectList<TAgendar1>;
     FClienteName: string;
     FKey: TKey;
     procedure SetFuncionarios(const Value: TObjectList<TFuncionario>);
@@ -33,7 +32,6 @@ uses
     procedure SetClientes(const Value: TObjectList<TCliente>);
     procedure SetServicos(const Value: TObjectList<TServico>);
     procedure SetEmpresa(const Value: TEmpresa);
-    procedure SetRequisicoes(const Value: TObjectList<TAgendar1>);
     procedure SetClienteName(const Value: string);
     procedure SetKey(const Value: TKey);
   published
@@ -44,7 +42,7 @@ uses
    property Clientes:TObjectList<TCliente> read FClientes write SetClientes;
    property Servicos:TObjectList<TServico> read FServicos write SetServicos;
    property Empresa:TEmpresa read FEmpresa write SetEmpresa;
-   property Requisicoes:TObjectList<TAgendar1> read FRequisicoes write SetRequisicoes;
+
    property ClienteName:string read FClienteName write SetClienteName;
    property Key:TKey read FKey write SetKey;
    destructor destroy;override;
@@ -87,7 +85,6 @@ FClientes:=TObjectList<TCliente>.create;
 FServicos:=TObjectList<TServico>.create;
 FEmpresa:=TEmpresa.create;
 FKey:=TKey.Create;
-FRequisicoes:=TObjectList<TAgendar1>.create;
 end;
 
 destructor TAgendar.destroy;
@@ -98,7 +95,6 @@ FDatas.Free;
 FClientes.Free;
 FServicos.Free;
 FEmpresa.Free;
-FRequisicoes.Free;
 FKey.free;
   inherited;
 end;
@@ -150,10 +146,7 @@ begin
   FKey := Value;
 end;
 
-procedure TAgendar.SetRequisicoes(const Value: TObjectList<TAgendar1>);
-begin
-  FRequisicoes := Value;
-end;
+
 
 procedure TAgendar.SetServicos(const Value: TObjectList<TServico>);
 begin

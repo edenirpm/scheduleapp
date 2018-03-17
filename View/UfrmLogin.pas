@@ -4,7 +4,7 @@ interface
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Effects,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Effects,model.requisicoes,
   FMX.Controls.Presentation, FMX.Edit, FMX.Objects, FMX.Layouts,UFrmCadastro,
   model.agendar,ufrmCalendar, {$ifdef Android}Androidapi.JNI.Toast,{$endif}
   UControllers,Controller.FrmLogin, FMX.Ani,uworks,System.Threading;
@@ -49,11 +49,14 @@ type
     procedure ExecuteWork(AWork:IWork);
     procedure Autologin;
     procedure FormShow(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
 
     { Private declarations }
   public
-
+   var
+   requisicoes:TRequisicoes;
     { Public declarations }
   end;
 
@@ -79,8 +82,8 @@ begin
      FrmCalendar.show;
     end else
           begin
-            Application.CreateForm(TFrmCadastro, FrmCadastro);
-            FrmCadastro.show;
+          //  Application.CreateForm(TFrmCadastro, FrmCadastro);
+          //  FrmCadastro.show;
           end;
  end;
 
@@ -122,6 +125,16 @@ Task:=TThread.CreateAnonymousThread(procedure
    self.LayLoad.Visible:=False;
    Self.FloatLoad.Enabled:=False;
   {$endif}
+end;
+
+procedure TFrmLogin.FormCreate(Sender: TObject);
+begin
+ Requisicoes:=TRequisicoes.GetInstance;
+end;
+
+procedure TFrmLogin.FormDestroy(Sender: TObject);
+begin
+requisicoes.Free;
 end;
 
 procedure TFrmLogin.FormShow(Sender: TObject);

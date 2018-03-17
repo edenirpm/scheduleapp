@@ -450,7 +450,9 @@ begin
   inherited;
  ctrl.EscolherServico(Listview4.Items[ItemIndex].Data['Nome'].AsString);
   Ctrl.Agendar;
+  Ctrl.AgendamentoMarcado;
   LayServico.Visible:=false;
+
   {$ifdef Android}
     Toast('Agendamento concluído com sucesso!',LongToast);
   {$endif}
@@ -496,6 +498,7 @@ begin
   inherited;
  Controller:=TController.create;
  Controller.SendWhatsappAll;
+ layoutsolicitacoes.visible:=false;
 end;
 
 procedure TFrmAgendar.Text31Click(Sender: TObject);

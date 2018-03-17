@@ -9,6 +9,8 @@ object FrmLogin: TFrmLogin
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   DesignerMasterStyle = 0
   object Layout1: TLayout
@@ -44711,7 +44713,7 @@ object FrmLogin: TFrmLogin
     object BGLoad: TRectangle
       Align = Client
       Fill.Color = claBlack
-      Opacity = 0.699999988079071000
+      Opacity = 0.699999988079071100
       Size.Width = 320.000000000000000000
       Size.Height = 480.000000000000000000
       Size.PlatformDefault = False

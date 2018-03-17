@@ -6,4 +6,5 @@
   <Option Name="namespaceFolder.model.agendar" Type="System.String" Value="model" Category="General" IsBrowsable="False" />
   <Option Name="namespaceFolder.model.listAgendar" Type="System.String" Value="model" Category="General" IsBrowsable="False" />
   <Option Name="namespaceFolder.UfrmAgendaDiaFuncionario" Type="System.String" Value="UfrmAgendaDiaFuncionario" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.model.requisicoes" Type="System.String" Value="model" Category="General" IsBrowsable="False" />
 </TgConfig>

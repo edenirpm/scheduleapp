@@ -41,6 +41,7 @@ IController = interface
   procedure SendWhatsappConfirmation();
   procedure SendWhatsappAll();
   procedure DesmarcarTodos();
+  procedure AgendamentoMarcado;
 
 
 end;
@@ -76,6 +77,7 @@ TController = class(TInterfacedObject,IController,IWork)
      procedure SendWhatsappConfirmation();
      procedure SendWhatsappAll();
      procedure DesmarcarTodos();
+     procedure AgendamentoMarcado;
 
 
 end;
@@ -88,6 +90,22 @@ uses
 
 { TController }
 
+
+procedure TController.AgendamentoMarcado;
+var
+msg:string;
+begin
+  try
+     msg:='Prezado '+Fmarcacao.Cliente.Nome+' seu agendamento '+FormatDatetime('dddd dd "de" mmmm "de" yyyy',Fmarcacao.Data)+' às: '+Fmarcacao.horarios+' foi marcado com sucesso. ';
+  finally
+    {$ifdef Android}
+     Twhatsapp.SendWhatsapp(Fmarcacao.Cliente.Telefone.Celular,msg);
+   // Twhatsapp.SendWhatsapp(FMarcacao.Cliente.Telefone.Celular,msg);
+   {$endif}
+  end;
+
+   
+end;
 
 function TController.Agendar: IController;
 var

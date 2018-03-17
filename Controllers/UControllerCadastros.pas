@@ -88,6 +88,10 @@ begin
      Agendar.Empresa.Endereco.Cidade:=Cidade;
      Agendar.Empresa.Endereco.Estado:=uf;
      Agendar.Empresa.Endereco.pais:=pais;
+     if (Agendar.empresa.Endereco.Pais = 'BR') or (Agendar.empresa.Endereco.Pais = 'Pais') then
+     begin
+      Agendar.Empresa.Telefone.CodPais:='55';
+     end;
      Agendar.Empresa.Telefone.DDD:=ddd;
      Agendar.Empresa.Telefone.Celular:=celular;
      Agendar.Empresa.Login:=Login;
@@ -269,7 +273,7 @@ procedure TControllerCadastros.update;
 var
 Dao:IDao;
 begin
- Dao:=TDao.create;
+ Dao:=TFirebase.create;
   {$ifdef Android}
   Toast('Aguarde...',LongToast);
  {$endif}

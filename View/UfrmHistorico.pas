@@ -49,6 +49,11 @@ type
     ChangeTabAction3: TChangeTabAction;
     SpeedButton1: TSpeedButton;
     ImageList2: TImageList;
+    TabItem4: TTabItem;
+    ListView4: TListView;
+    Rectangle6: TRectangle;
+    Text8: TText;
+    ChangeTabAction4: TChangeTabAction;
     procedure ListView1ItemClickEx(const Sender: TObject; ItemIndex: Integer;
       const LocalClickPos: TPointF; const ItemObject: TListItemDrawable);
     procedure FormActivate(Sender: TObject);
@@ -109,7 +114,7 @@ begin
 if key=vkHardwareBack then
   begin
    Key:=0;
-    if (TabControl1.ActiveTab = TabItem2) or (TabControl1.ActiveTab = TabItem3) then
+    if (TabControl1.ActiveTab = TabItem2) or (TabControl1.ActiveTab = TabItem3) or (TabControl1.ActiveTab = TabItem4) then
     begin
       Key:=0;
       ChangeTabAction2.ExecuteTarget(self);
@@ -171,6 +176,8 @@ Ctrl:IController;
 begin
   inherited;
   Ctrl:=TController.Create;
+  Ctrl.ListarServicos(Listview4,ImageList2,IndexClient,ItemIndex);
+  ChangeTabAction4.ExecuteTarget(self);
  if LocalClickPos.X>270   then
   begin
   Ctrl.DeletarOrcamento(Itemindex,IndexClient);

@@ -50,7 +50,8 @@ uses
   Controller.FrmOrcamentos in 'Controllers\Controller.FrmOrcamentos.pas',
   UfrmCadastrarOrcamento in 'View\UfrmCadastrarOrcamento.pas' {FrmCadastrarOrcamento},
   model.key in 'model\model.key.pas',
-  model.agendar1 in 'model\model.agendar1.pas';
+  model.agendar1 in 'model\model.agendar1.pas',
+  model.requisicoes in 'model\model.requisicoes.pas';
 
 {$R *.res}
 

@@ -6,7 +6,7 @@
         <MainSource>AgendaPlus.dpr</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Release</Config>
-        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+        <Platform Condition="'$(Platform)'==''">Android</Platform>
         <TargetedPlatforms>1119</TargetedPlatforms>
         <AppType>Application</AppType>
     </PropertyGroup>
@@ -423,6 +423,7 @@
         </DCCReference>
         <DCCReference Include="model\model.key.pas"/>
         <DCCReference Include="model\model.agendar1.pas"/>
+        <DCCReference Include="model\model.requisicoes.pas"/>
         <None Include="ModelSupport_AgendaPlus\default.txaPackage"/>
         <None Include="ModelSupport_AgendaPlus\default.txvpck"/>
         <None Include="ModelSupport_AgendaPlus\model\default.txvpck"/>
@@ -446,6 +447,8 @@
         <None Include="ModelSupport_AgendaPlus\model\agendar\default.txaPackage"/>
         <None Include="ModelSupport_AgendaPlus\model\listAgendar\default.txvpck"/>
         <None Include="ModelSupport_AgendaPlus\model\listAgendar\default.txaPackage"/>
+        <None Include="ModelSupport_AgendaPlus\model\requisicoes\default.txvpck"/>
+        <None Include="ModelSupport_AgendaPlus\model\requisicoes\default.txaPackage"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -593,6 +596,12 @@
                 <DeployFile LocalName="ModelSupport_AgendaPlus\UControllers\default.txvpck" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_AgendaPlus\model\requisicoes\default.txaPackage" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Android">
+                        <RemoteDir>.\assets\internal\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -945,6 +954,12 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="ModelSupport_AgendaPlus\model\requisicoes\default.txvpck" Configuration="Release" Class="ProjectFile">
+                    <Platform Name="Android">
+                        <RemoteDir>.\assets\internal\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="ModelSupport_AgendaPlus\default.txvpck" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
@@ -1004,15 +1019,15 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="ModelSupport_AgendaPlus\model\default.txvpck" Configuration="Debug" Class="ProjectFile">
-                    <Platform Name="Win32">
-                        <RemoteDir>.\</RemoteDir>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
                 <DeployFile LocalName="ModelSupport_AgendaPlus\UfrmCadFuncionario\default.txvpck" Configuration="Release" Class="ProjectFile">
                     <Platform Name="Android">
                         <RemoteDir>.\assets\internal\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_AgendaPlus\model\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

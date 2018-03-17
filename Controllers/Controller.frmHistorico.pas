@@ -9,6 +9,7 @@ model.cliente,
 Fmx.Listview,
 Fmx.ImgList,
 model.orcamento,System.threading,
+model.servico,
 UControllerCadastros;
 Type
 IController = interface
@@ -19,6 +20,7 @@ IController = interface
   procedure ClienteNome(AClientNAme:string);
   procedure DeletarOrcamento(Aindex,AClientIndex:integer);
   procedure Update;
+  procedure ListarServicos(AListview:TListview;AImageList:TImageList;AindexClient,AIndexOrcamento:integer);
 end;
 
 TController = class(TinterfacedObject,IController)
@@ -28,6 +30,7 @@ TController = class(TinterfacedObject,IController)
   procedure ClienteNome(AClientNAme:string);
   procedure DeletarOrcamento(Aindex,AClientIndex:integer);
   procedure Update;
+  procedure ListarServicos(AListview:TListview;AImageList:TImageList;AindexClient,AIndexOrcamento:integer);
 end;
 
 implementation
@@ -135,6 +138,31 @@ Agendar:=TAgendar.GetInstance;
 
 
 end;
+procedure TController.ListarServicos(AListview: TListview;
+  AImageList: TImageList;AindexClient,AIndexOrcamento:integer);
+var
+Agendar:TAgendar;
+Task:ITask;
+begin
+ AListview.Items.Clear;
+ Task:=TTask.Create(procedure
+ var
+ Servico:TServico;
+ begin
+  Agendar:=TAgendar.GetInstance;
+   for Servico in Agendar.Clientes[AindexClient].Orcamentos[AIndexOrcamento].Procedimentos do
+   begin
+     with alistview.Items.Add do
+     begin
+       Data['Nome']:=Servico.Nome;
+       Data['Valor']:='Valor: '+FormatCurr('R$ ###,##0.00', Servico.Valor);
+       Data['Foto']:=AimageList.Source[0].ID;
+     end;
+   end;
+ end);
+ Task.Start;
+end;
+
 procedure TController.Update;
 var
 Task:ITask;
